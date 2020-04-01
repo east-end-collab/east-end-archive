@@ -26,11 +26,12 @@
       });
     }
   </script>
-  <script type="text/babel" src="/assets/react/search.js"></script>
   <script src="https://unpkg.com/itemsjs@latest/dist/itemsjs.min.js"></script>
-  <script src="/airtable.js"></script>
-  <script src="https://cdn.rawgit.com/itemsapi/itemsapi-example-data/master/jsfiddle/imdb.js"></script>
+  <script>
+    const airtable = {{ site.data.airtable | jsonify }};
+  </script>
 
+  <script src="/assets/react/build/search.js"></script>
   </body>
 
 </html>

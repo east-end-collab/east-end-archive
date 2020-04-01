@@ -20,14 +20,6 @@ class ItemsJS extends React.Component {
             title: 'Death Year',
             size: 10
           },
-          "Death_Primary[505614]": {
-            title: 'Primary Cause of Death',
-            size: 10
-          },
-          "Death_Secondary[505615]": {
-            title: 'Secondary Cause of Death',
-            size: 10
-          },
           "Cemetery Name[532988]": {
             title: 'Cemetary',
             size: 10
@@ -46,7 +38,6 @@ class ItemsJS extends React.Component {
     // const data = airtable.records.map(record => {
     //   return record.fields
     // });
-    
 
     
     this.state = {
@@ -76,11 +67,8 @@ class ItemsJS extends React.Component {
 
   handleCheckbox = (filterName, filterValue) => event => {
     const oldFilters = this.state.filters;
-    console.log("oldFilters", oldFilters)
-    let newFilters = oldFilters
+    let newFilters = oldFilters;
     let check = event.target.checked;
-    console.log("filterName", "filterValue")
-    console.log(typeof(filterName), typeof(filterValue))
     if (check) {
       newFilters[filterName].push(filterValue)
 
@@ -105,7 +93,7 @@ class ItemsJS extends React.Component {
       filters: this.state.filters,
       per_page: 50
     })
-    console.log(result);
+    // console.log(result);
     
     return result
   }
