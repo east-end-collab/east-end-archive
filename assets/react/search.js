@@ -43,9 +43,9 @@ class ItemsJS extends React.Component {
     })
 
     
-    const data = airtable.records.map(record => {
-      return record.fields
-    });
+    // const data = airtable.records.map(record => {
+    //   return record.fields
+    // });
     
 
     
@@ -57,7 +57,7 @@ class ItemsJS extends React.Component {
       
       // In React line below is:
       //itemsjs: require('itemsjs')(rows, this.state.configuration),
-      itemsjs: itemsjs(data, this.state.configuration),
+      itemsjs: itemsjs(airtable, this.state.configuration),
 
       query: '',
       filters: newFilters,
@@ -109,7 +109,8 @@ class ItemsJS extends React.Component {
 
     var result = this.state.itemsjs.search({
       query: this.state.query,
-      filters: this.state.filters
+      filters: this.state.filters,
+      per_page: 50
     })
     console.log(result);
     
