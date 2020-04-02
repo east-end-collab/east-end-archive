@@ -1,10 +1,16 @@
 class ItemsJS extends React.Component {
   constructor(props) {
     super(props);
-
+    
     this.state = {
       configuration: {
-        searchableFields: ['Last_Name[505602]', 'First_Name[505603]', 'Birth_Year[505610]', "Middle_Name[505604]", "Cemetery Name[532988]"],
+        searchableFields: [
+          'Last_Name[505602]', 
+          'First_Name[505603]', 
+          'Birth_Year[505610]', 
+          'Middle_Name[505604]', 
+          'Cemetery Name[532988]',
+        ],
         sortings: {
           name_asc: {
             field: 'Last_Name[505602]',
@@ -28,17 +34,10 @@ class ItemsJS extends React.Component {
       }
     }
     
-    
     var newFilters = {};
     Object.keys(this.state.configuration.aggregations).map(function (v) {
       newFilters[v] = [];
     })
-
-    
-    // const data = airtable.records.map(record => {
-    //   return record.fields
-    // });
-
     
     this.state = {
       ...this.state,
@@ -91,20 +90,17 @@ class ItemsJS extends React.Component {
     var result = this.state.itemsjs.search({
       query: this.state.query,
       filters: this.state.filters,
-      per_page: 50
+      per_page: 20
     })
-    // console.log(result);
-    
+    console.log(result);
     return result
   }
 ;
   
-
   render() {
     return (
       <div>
         <nav className="navbar navbar-default" style={{marginBottom: 0}}>
-          <div className="container">
             <div id="navbar">
               <form className="navbar-form navbar-left" style={{paddingLeft: 0}}>
                 <div className="form-group">
@@ -113,7 +109,6 @@ class ItemsJS extends React.Component {
                 </div>
               </form>
             </div>
-          </div>
         </nav>
 
         <div className="container" style={{ marginTop: 0 }}>
@@ -123,7 +118,7 @@ class ItemsJS extends React.Component {
           <p className="text-muted">Search performed in {this.searchResult.timings.search} ms, facets in {this.searchResult.timings.facets} ms</p>
 
           <div className="row">
-            <div className="col-md-2 col-xs-2">
+            <div className="col-md-4 col-xs-4">
               {
                 Object.entries(this.searchResult.data.aggregations).map(([key, value]) => {
                   return (
@@ -151,44 +146,131 @@ class ItemsJS extends React.Component {
                 })
               }
             </div>
-            <div className="col-md-10 col-xs-10">
-            <div className="breadcrumbs"></div>
-            <div className="clearfix"></div>
-            <table className="table table-striped">
-              <tbody>
-                <tr>
-                  <th>image</th>
-                  <th>Find a Grave Link</th>
-                  <th>Name</th>
-                  <th>Birth - Death</th>
-                  <th>Cemetary Name</th>
-                </tr>
+            <div className="col-md-8 col-xs-8">
               {
               Object.entries(this.searchResult.data.items).map(([key, item]) => {
-                let birthYear = item["Birth_Year[505610]"] ? item["Birth_Year[505610]"] : "?"
-                let deathYear = item["Death_Year[505613]"] ? item["Death_Year[505613]"] : "?"
-                let findGraveUrl = item["FindGraveURL[505600]"] ? item["FindGraveURL[505600]"] : null
-                let middleName = item["Middle_Name[505604]"] ? item["Middle_Name[505604]"] : ""
+                let birthYear = item["Birth_Year[505610]"] ? item["Birth_Year[505610]"] : "?";
+                let deathYear = item["Death_Year[505613]"] ? item["Death_Year[505613]"] : "?";
+                let findGraveUrl = item["FindGraveURL[505600]"] ? item["FindGraveURL[505600]"] : null;
+                let cemetaryName = item["Cemetery Name[532988]"] ? item["Cemetery Name[532988]"] : null;
+                let middleName = item["Middle_Name[505604]"] ? item["Middle_Name[505604]"] : "";
+                let mediaUrl = "/assets/img/placeholder.jpg";
                 return (
-                <tr key={key}>
-                  <td><img style={{width: '100px'}} src={item["Media URL"]} /></td>
-                  <td>{findGraveUrl ? <a target="_blank" href={findGraveUrl}>Find-A-Grave</a> : "" }</td>
-                  <td>
-                    <b>{`${item["First_Name[505603]"]} ${middleName} ${item["Last_Name[505602]"]}`} </b>
-                    <br />
-                    {item.description}
-                  </td>
-                  <td>
-                    <span >{ `${birthYear} - ${deathYear}` }</span>
-                  </td>
-                  <td>
-                    {item["Cemetery Name[532988]"]}
-                  </td>
-                </tr>)})
+                  // <tr key={key}>
+                  //   <td><img style={{width: '100px'}} src={item["Media URL"]} /></td>
+                  //   <td>{findGraveUrl ? <a target="_blank" href={findGraveUrl}>Find-A-Grave</a> : "" }</td>
+                  //   <td>
+                  //     <b>{`${item["First_Name[505603]"]} ${middleName} ${item["Last_Name[505602]"]}`} </b>
+                  //     <br />
+                  //     {item.description}
+                  //   </td>
+                  //   <td>
+                  //     <span >{ `${birthYear} - ${deathYear}` }</span>
+                  //   </td>
+                  //   <td>
+                  //     
+                  //   </td>
+                  // </tr>
+                  <div className="row rounded-lg mb-3 shadow-sm p-3 result-card" key={key}>
+                    <div className="col-sm-4 p-0 portrait-container">
+                        <img src={mediaUrl} />
+                    </div>
+                    <div className="col-sm-8 info-container">
+                      <h3>{`${item["First_Name[505603]"]} ${middleName} ${item["Last_Name[505602]"]}`}</h3>
+                      <p className="life-span">
+                        {`${birthYear} - ${deathYear}`}
+                      </p>
+                      <p>
+                      {cemetaryName ? <small className="sub-text">{`(${cemetaryName})`}</small> : ""}
+                      </p>
+                      <div className="link-container">
+                        <a href="/">Find-A-Grave</a>
+                        <a href="/">See on Cemetary Map</a>
+                      </div>
+                      <div className="row rounded-lg fact-container">
+                        <div className="col-sm-6">
+                          <table className="table table-sm table-borderless">
+                            <tbody>
+                              <tr>
+                                <td style={{textAlign: 'right'}}>
+                                  <strong>Factoid:</strong>
+                                </td>
+                                <td>
+                                  Lorem Ipsum
+                                </td>
+                              </tr>
+                              <tr>
+                                <td style={{textAlign: 'right'}}>
+                                  <strong>Factoid:</strong>
+                                </td>
+                                <td>
+                                  Lorem Ipsum
+                                </td>
+                              </tr>
+                              <tr>
+                                <td style={{textAlign: 'right'}}>
+                                  <strong>Factoid:</strong>
+                                </td>
+                                <td>
+                                  Lorem Ipsum
+                                </td>
+                              </tr>
+                              <tr>
+                                <td style={{textAlign: 'right'}}>
+                                  <strong>Factoid:</strong>
+                                </td>
+                                <td>
+                                  Lorem Ipsum
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <div className="col-sm-6" >
+                          <table className="table table-sm table-borderless">
+                            <tbody>
+                              <tr>
+                                <td style={{textAlign: 'right'}}>
+                                  <strong>Factoid:</strong>
+                                </td>
+                                <td>
+                                  Lorem Ipsum
+                                </td>
+                              </tr>
+                              <tr>
+                                <td style={{textAlign: 'right'}}>
+                                  <strong>Factoid:</strong>
+                                </td>
+                                <td>
+                                  Lorem Ipsum
+                                </td>
+                              </tr>
+                              <tr>
+                                <td style={{textAlign: 'right'}}>
+                                  <strong>Factoid:</strong>
+                                </td>
+                                <td>
+                                  Lorem Ipsum
+                                </td>
+                              </tr>
+                              <tr>
+                                <td style={{textAlign: 'right'}}>
+                                  <strong>Factoid:</strong>
+                                </td>
+                                <td>
+                                  Lorem Ipsum
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                )
+              })
               }
-              </tbody>
-            </table>
-            <div className="clearfix"></div>
           </div>
           </div>
         </div>
