@@ -2,7 +2,7 @@
   "name": "east-end-collaboratory",
   "version": "1.0.0",
   "description": "",
-  "main": "airtable.js",
+  "main": "index.js",
   "scripts": {
     "start": "npx babel --watch src --out-dir assets/react/build --presets react-app/prod",
     "test": "echo \"Error: no test specified\" && exit 1"

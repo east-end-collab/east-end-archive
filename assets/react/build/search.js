@@ -8,36 +8,44 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var ItemsJS = function (_React$Component) {
-  _inherits(ItemsJS, _React$Component);
+var Search = function (_React$Component) {
+  _inherits(Search, _React$Component);
 
-  function ItemsJS(props) {
-    _classCallCheck(this, ItemsJS);
+  function Search(props) {
+    _classCallCheck(this, Search);
 
-    var _this = _possibleConstructorReturn(this, (ItemsJS.__proto__ || Object.getPrototypeOf(ItemsJS)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (Search.__proto__ || Object.getPrototypeOf(Search)).call(this, props));
 
     _initialiseProps.call(_this);
 
     _this.state = {
       configuration: {
-        searchableFields: ['Last_Name[505602]', 'First_Name[505603]', 'Birth_Year[505610]', 'Middle_Name[505604]', 'Cemetery Name[532988]'],
+        searchableFields: ['Last_Name', 'First_Name', 'Birth_Year', 'Middle_Name', 'Cemetery Name'],
         sortings: {
           name_asc: {
-            field: 'Last_Name[505602]',
+            field: 'Last_Name',
             order: 'asc'
           }
         },
         aggregations: {
-          "Birth_Year[505610]": {
+          "Birth_Year": {
             title: 'Birth Year',
             size: 10
           },
-          "Death_Year[505613]": {
+          "Death_Year": {
             title: 'Death Year',
             size: 10
           },
-          "Cemetery Name[532988]": {
+          "Cemetery_Name": {
             title: 'Cemetary',
+            size: 10
+          },
+          "Fraternal_Organization": {
+            title: 'Fraternal Organization',
+            size: 10
+          },
+          "Church_Affiliation": {
+            title: 'Fraternal Organization',
             size: 10
           }
         }
@@ -50,14 +58,14 @@ var ItemsJS = function (_React$Component) {
     });
 
     _this.state = Object.assign({}, _this.state, {
-      itemsjs: itemsjs(airtable, _this.state.configuration),
+      itemsjs: itemsjs(allRecords, _this.state.configuration),
       query: '',
       filters: newFilters
     });
     return _this;
   }
 
-  _createClass(ItemsJS, [{
+  _createClass(Search, [{
     key: 'changeQuery',
     value: function changeQuery(e) {
       this.setState({
@@ -81,354 +89,348 @@ var ItemsJS = function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
+      console.log('Search performed in ' + this.searchResult.timings.search + ' ms, facets in ' + this.searchResult.timings.facets + ' ms');
+
       return React.createElement(
         'div',
-        null,
-        React.createElement(
-          'nav',
-          { className: 'navbar navbar-default', style: { marginBottom: 0 } },
-          React.createElement(
-            'div',
-            { id: 'navbar' },
-            React.createElement(
-              'form',
-              { className: 'navbar-form navbar-left', style: { paddingLeft: 0 } },
-              React.createElement(
-                'div',
-                { className: 'form-group' },
-                React.createElement(
-                  'h1',
-                  null,
-                  'Search'
-                ),
-                React.createElement('input', { type: 'text', value: this.state.query, onChange: this.changeQuery.bind(this), className: 'form-control', placeholder: 'Search' })
-              )
-            )
-          )
-        ),
+        { className: 'container', style: { marginTop: 0 } },
         React.createElement(
           'div',
-          { className: 'container', style: { marginTop: 0 } },
+          { className: 'row mt-5' },
           React.createElement(
-            'h3',
-            null,
-            'Results (',
-            this.searchResult.pagination.total,
-            ')'
-          ),
-          React.createElement(
-            'p',
-            { className: 'text-muted' },
-            'Search performed in ',
-            this.searchResult.timings.search,
-            ' ms, facets in ',
-            this.searchResult.timings.facets,
-            ' ms'
+            'div',
+            { className: 'col-md-4 col-xs-4', id: 'facet-sidebar' },
+            React.createElement(
+              'nav',
+              { className: 'navbar navbar-default pl-0', style: { marginBottom: 0 } },
+              React.createElement(
+                'div',
+                { id: 'navbar' },
+                React.createElement(
+                  'form',
+                  { className: 'navbar-form navbar-left', style: { paddingLeft: 0 } },
+                  React.createElement(
+                    'div',
+                    { className: 'form-group' },
+                    React.createElement(
+                      'h1',
+                      null,
+                      'Search'
+                    ),
+                    React.createElement('input', { type: 'text', value: this.state.query, onChange: this.changeQuery.bind(this), className: 'form-control', placeholder: 'Search' })
+                  )
+                )
+              )
+            ),
+            React.createElement(
+              'h3',
+              null,
+              'Results',
+              React.createElement(
+                'span',
+                { className: 'badge badge-secondary ml-2' },
+                this.searchResult.pagination.total
+              )
+            ),
+            Object.entries(this.searchResult.data.aggregations).map(function (_ref) {
+              var _ref2 = _slicedToArray(_ref, 2),
+                  key = _ref2[0],
+                  value = _ref2[1];
+
+              return React.createElement(
+                'div',
+                { key: key, className: 'facet-section' },
+                React.createElement(
+                  'h5',
+                  null,
+                  React.createElement(
+                    'strong',
+                    null,
+                    value.title
+                  )
+                ),
+                React.createElement(
+                  'div',
+                  { className: 'facet-grouping' },
+                  Object.entries(value.buckets).map(function (_ref3) {
+                    var _ref4 = _slicedToArray(_ref3, 2),
+                        keyB = _ref4[0],
+                        valueB = _ref4[1];
+
+                    var isChecked = _this2.state.filters[value.name].indexOf(valueB.key) > -1 || false;
+
+                    return React.createElement(
+                      'label',
+                      { key: valueB.key, className: (isChecked ? "selected" : "btn-light") + ' btn m-1 facet' },
+                      React.createElement('input', {
+                        type: 'checkbox',
+                        checked: isChecked,
+                        onChange: _this2.handleCheckbox(value.name, valueB.key) }),
+                      React.createElement(
+                        'span',
+                        { className: 'pr-2' },
+                        valueB.key
+                      ),
+                      React.createElement(
+                        'span',
+                        { className: 'badge badge-secondary' },
+                        valueB.doc_count
+                      )
+                    );
+                  })
+                )
+              );
+            })
           ),
           React.createElement(
             'div',
-            { className: 'row' },
-            React.createElement(
-              'div',
-              { className: 'col-md-4 col-xs-4' },
-              Object.entries(this.searchResult.data.aggregations).map(function (_ref) {
-                var _ref2 = _slicedToArray(_ref, 2),
-                    key = _ref2[0],
-                    value = _ref2[1];
+            { className: 'col-md-8 col-xs-8', id: 'result-card-container' },
+            Object.entries(this.searchResult.data.items).map(function (_ref5) {
+              var _ref6 = _slicedToArray(_ref5, 2),
+                  key = _ref6[0],
+                  item = _ref6[1];
 
-                return React.createElement(
+              var Birth_Year = item.Birth_Year,
+                  Death_Year = item.Death_Year,
+                  Prefix = item.Prefix,
+                  First_Name = item.First_Name,
+                  Middle_Name = item.Middle_Name,
+                  Last_Name = item.Last_Name,
+                  Suffix = item.Suffix,
+                  Media_URL = item.Media_URL,
+                  Cemetery_Name = item.Cemetery_Name,
+                  FindGraveURL = item.FindGraveURL,
+                  Find_A_Grave = item.Find_A_Grave;
+
+              var birthYear = Birth_Year ? Birth_Year : "?";
+              var deathYear = Death_Year ? Death_Year : "?";
+              var findGraveUrl = FindGraveURL ? FindGraveURL : Find_A_Grave ? 'https://www.findagrave.com/memorial/' + Find_A_Grave.trim() : null;
+              var cemetaryName = Cemetery_Name ? Cemetery_Name : null;
+              // TODO: Change placeholder image
+              var placeholderImg = "/assets/img/placeholder.jpg";
+              var mediaUrl = Media_URL ? Media_URL : placeholderImg;
+              var addDefaultSrc = function addDefaultSrc(e) {
+                e.target.src = placeholderImg;
+              };
+              return React.createElement(
+                'div',
+                { className: 'row rounded-lg mb-4 shadow-lg p-4 result-card', key: key },
+                React.createElement(
                   'div',
-                  { key: key },
+                  { className: 'col-sm-4 p-0 portrait-container' },
+                  React.createElement('img', { src: mediaUrl, onError: addDefaultSrc })
+                ),
+                React.createElement(
+                  'div',
+                  { className: 'col-sm-8 pl-4 pr-0 info-container' },
                   React.createElement(
-                    'h5',
-                    { style: { marginBottom: '5px' } },
-                    React.createElement(
-                      'strong',
-                      { style: { color: '#337ab7' } },
-                      value.title
-                    )
+                    'h4',
+                    null,
+                    Prefix + ' ' + First_Name + ' ' + Middle_Name + ' ' + Last_Name + ' ' + Suffix
                   ),
                   React.createElement(
-                    'ul',
-                    { className: 'browse-list list-unstyled long-list', style: { marginBottom: '0px' } },
-                    Object.entries(value.buckets).map(function (_ref3) {
-                      var _ref4 = _slicedToArray(_ref3, 2),
-                          keyB = _ref4[0],
-                          valueB = _ref4[1];
-
-                      return React.createElement(
-                        'li',
-                        { key: valueB.key },
-                        React.createElement(
-                          'div',
-                          { className: 'checkbox block', style: { marginTop: '0px', marginBottom: '0px' } },
-                          React.createElement(
-                            'label',
-                            null,
-                            React.createElement('input', { className: 'checkbox', type: 'checkbox', checked: _this2.state.filters[value.name].indexOf(valueB.key) > -1 || false, onChange: _this2.handleCheckbox(value.name, valueB.key) }),
-                            valueB.key,
-                            ' (',
-                            valueB.doc_count,
-                            ')'
-                          )
-                        )
-                      );
-                    })
-                  )
-                );
-              })
-            ),
-            React.createElement(
-              'div',
-              { className: 'col-md-8 col-xs-8' },
-              Object.entries(this.searchResult.data.items).map(function (_ref5) {
-                var _ref6 = _slicedToArray(_ref5, 2),
-                    key = _ref6[0],
-                    item = _ref6[1];
-
-                var birthYear = item["Birth_Year[505610]"] ? item["Birth_Year[505610]"] : "?";
-                var deathYear = item["Death_Year[505613]"] ? item["Death_Year[505613]"] : "?";
-                var findGraveUrl = item["FindGraveURL[505600]"] ? item["FindGraveURL[505600]"] : null;
-                var cemetaryName = item["Cemetery Name[532988]"] ? item["Cemetery Name[532988]"] : null;
-                var middleName = item["Middle_Name[505604]"] ? item["Middle_Name[505604]"] : "";
-                var mediaUrl = "/assets/img/placeholder.jpg";
-                return (
-                  // <tr key={key}>
-                  //   <td><img style={{width: '100px'}} src={item["Media URL"]} /></td>
-                  //   <td>{findGraveUrl ? <a target="_blank" href={findGraveUrl}>Find-A-Grave</a> : "" }</td>
-                  //   <td>
-                  //     <b>{`${item["First_Name[505603]"]} ${middleName} ${item["Last_Name[505602]"]}`} </b>
-                  //     <br />
-                  //     {item.description}
-                  //   </td>
-                  //   <td>
-                  //     <span >{ `${birthYear} - ${deathYear}` }</span>
-                  //   </td>
-                  //   <td>
-                  //     
-                  //   </td>
-                  // </tr>
+                    'p',
+                    { className: 'life-span' },
+                    birthYear + ' - ' + deathYear
+                  ),
+                  React.createElement(
+                    'p',
+                    null,
+                    cemetaryName ? React.createElement(
+                      'small',
+                      { className: 'sub-text' },
+                      '(' + cemetaryName + ')'
+                    ) : ""
+                  ),
                   React.createElement(
                     'div',
-                    { className: 'row rounded-lg mb-3 shadow-sm p-3 result-card', key: key },
+                    { className: 'rounded-lg p-2 shadow fact-container' },
                     React.createElement(
                       'div',
-                      { className: 'col-sm-4 p-0 portrait-container' },
-                      React.createElement('img', { src: mediaUrl })
+                      { className: 'col-sm-6 p-0' },
+                      React.createElement(
+                        'table',
+                        { className: 'table table-sm table-borderless' },
+                        React.createElement(
+                          'tbody',
+                          null,
+                          React.createElement(
+                            'tr',
+                            null,
+                            React.createElement(
+                              'td',
+                              { style: { textAlign: 'right' } },
+                              React.createElement(
+                                'strong',
+                                null,
+                                'Marital Status'
+                              )
+                            ),
+                            React.createElement(
+                              'td',
+                              null,
+                              'Married'
+                            )
+                          ),
+                          React.createElement(
+                            'tr',
+                            null,
+                            React.createElement(
+                              'td',
+                              { style: { textAlign: 'right' } },
+                              React.createElement(
+                                'strong',
+                                null,
+                                'Occupation'
+                              )
+                            ),
+                            React.createElement(
+                              'td',
+                              null,
+                              'Physician'
+                            )
+                          ),
+                          React.createElement(
+                            'tr',
+                            null,
+                            React.createElement(
+                              'td',
+                              { style: { textAlign: 'right' } },
+                              React.createElement(
+                                'strong',
+                                null,
+                                'Birth Place'
+                              )
+                            ),
+                            React.createElement(
+                              'td',
+                              null,
+                              'Richmond, Virginia'
+                            )
+                          ),
+                          React.createElement(
+                            'tr',
+                            null,
+                            React.createElement(
+                              'td',
+                              { style: { textAlign: 'right' } },
+                              React.createElement(
+                                'strong',
+                                null,
+                                'Spouce Name'
+                              )
+                            ),
+                            React.createElement(
+                              'td',
+                              null,
+                              'Alex Ipsum'
+                            )
+                          ),
+                          React.createElement(
+                            'tr',
+                            null,
+                            React.createElement(
+                              'td',
+                              { style: { textAlign: 'right' } },
+                              React.createElement(
+                                'strong',
+                                null,
+                                'Frat. Org.'
+                              )
+                            ),
+                            React.createElement(
+                              'td',
+                              null,
+                              'Lorem Ipsum Dolor'
+                            )
+                          )
+                        )
+                      )
                     ),
                     React.createElement(
                       'div',
-                      { className: 'col-sm-8 info-container' },
+                      { className: 'col-sm-6 p-0' },
                       React.createElement(
-                        'h3',
-                        null,
-                        item["First_Name[505603]"] + ' ' + middleName + ' ' + item["Last_Name[505602]"]
-                      ),
-                      React.createElement(
-                        'p',
-                        { className: 'life-span' },
-                        birthYear + ' - ' + deathYear
-                      ),
-                      React.createElement(
-                        'p',
-                        null,
-                        cemetaryName ? React.createElement(
-                          'small',
-                          { className: 'sub-text' },
-                          '(' + cemetaryName + ')'
-                        ) : ""
-                      ),
-                      React.createElement(
-                        'div',
-                        { className: 'link-container' },
+                        'table',
+                        { className: 'table table-sm table-borderless' },
                         React.createElement(
-                          'a',
-                          { href: '/' },
-                          'Find-A-Grave'
-                        ),
-                        React.createElement(
-                          'a',
-                          { href: '/' },
-                          'See on Cemetary Map'
-                        )
-                      ),
-                      React.createElement(
-                        'div',
-                        { className: 'row rounded-lg fact-container' },
-                        React.createElement(
-                          'div',
-                          { className: 'col-sm-6' },
+                          'tbody',
+                          null,
                           React.createElement(
-                            'table',
-                            { className: 'table table-sm table-borderless' },
+                            'tr',
+                            null,
                             React.createElement(
-                              'tbody',
-                              null,
+                              'td',
+                              { style: { textAlign: 'right' } },
                               React.createElement(
-                                'tr',
+                                'strong',
                                 null,
-                                React.createElement(
-                                  'td',
-                                  { style: { textAlign: 'right' } },
-                                  React.createElement(
-                                    'strong',
-                                    null,
-                                    'Factoid:'
-                                  )
-                                ),
-                                React.createElement(
-                                  'td',
-                                  null,
-                                  'Lorem Ipsum'
-                                )
-                              ),
-                              React.createElement(
-                                'tr',
-                                null,
-                                React.createElement(
-                                  'td',
-                                  { style: { textAlign: 'right' } },
-                                  React.createElement(
-                                    'strong',
-                                    null,
-                                    'Factoid:'
-                                  )
-                                ),
-                                React.createElement(
-                                  'td',
-                                  null,
-                                  'Lorem Ipsum'
-                                )
-                              ),
-                              React.createElement(
-                                'tr',
-                                null,
-                                React.createElement(
-                                  'td',
-                                  { style: { textAlign: 'right' } },
-                                  React.createElement(
-                                    'strong',
-                                    null,
-                                    'Factoid:'
-                                  )
-                                ),
-                                React.createElement(
-                                  'td',
-                                  null,
-                                  'Lorem Ipsum'
-                                )
-                              ),
-                              React.createElement(
-                                'tr',
-                                null,
-                                React.createElement(
-                                  'td',
-                                  { style: { textAlign: 'right' } },
-                                  React.createElement(
-                                    'strong',
-                                    null,
-                                    'Factoid:'
-                                  )
-                                ),
-                                React.createElement(
-                                  'td',
-                                  null,
-                                  'Lorem Ipsum'
-                                )
+                                'Military Service'
                               )
+                            ),
+                            React.createElement(
+                              'td',
+                              null,
+                              'WWII'
                             )
-                          )
-                        ),
-                        React.createElement(
-                          'div',
-                          { className: 'col-sm-6' },
+                          ),
                           React.createElement(
-                            'table',
-                            { className: 'table table-sm table-borderless' },
+                            'tr',
+                            null,
                             React.createElement(
-                              'tbody',
-                              null,
+                              'td',
+                              { style: { textAlign: 'right' } },
                               React.createElement(
-                                'tr',
+                                'strong',
                                 null,
-                                React.createElement(
-                                  'td',
-                                  { style: { textAlign: 'right' } },
-                                  React.createElement(
-                                    'strong',
-                                    null,
-                                    'Factoid:'
-                                  )
-                                ),
-                                React.createElement(
-                                  'td',
-                                  null,
-                                  'Lorem Ipsum'
-                                )
-                              ),
-                              React.createElement(
-                                'tr',
-                                null,
-                                React.createElement(
-                                  'td',
-                                  { style: { textAlign: 'right' } },
-                                  React.createElement(
-                                    'strong',
-                                    null,
-                                    'Factoid:'
-                                  )
-                                ),
-                                React.createElement(
-                                  'td',
-                                  null,
-                                  'Lorem Ipsum'
-                                )
-                              ),
-                              React.createElement(
-                                'tr',
-                                null,
-                                React.createElement(
-                                  'td',
-                                  { style: { textAlign: 'right' } },
-                                  React.createElement(
-                                    'strong',
-                                    null,
-                                    'Factoid:'
-                                  )
-                                ),
-                                React.createElement(
-                                  'td',
-                                  null,
-                                  'Lorem Ipsum'
-                                )
-                              ),
-                              React.createElement(
-                                'tr',
-                                null,
-                                React.createElement(
-                                  'td',
-                                  { style: { textAlign: 'right' } },
-                                  React.createElement(
-                                    'strong',
-                                    null,
-                                    'Factoid:'
-                                  )
-                                ),
-                                React.createElement(
-                                  'td',
-                                  null,
-                                  'Lorem Ipsum'
-                                )
+                                'Service Info'
                               )
+                            ),
+                            React.createElement(
+                              'td',
+                              null,
+                              'Co. G, 24th Infantry'
+                            )
+                          ),
+                          React.createElement(
+                            'tr',
+                            null,
+                            React.createElement(
+                              'td',
+                              { style: { textAlign: 'right' } },
+                              React.createElement(
+                                'strong',
+                                null,
+                                'Church Affiliation'
+                              )
+                            ),
+                            React.createElement(
+                              'td',
+                              null,
+                              'Lorem Ipsum Baptist Church'
                             )
                           )
                         )
                       )
                     )
+                  ),
+                  React.createElement(
+                    'div',
+                    { className: 'mt-3 link-container' },
+                    React.createElement(
+                      'a',
+                      { target: '_blank', href: findGraveUrl },
+                      'View on Findagrave.com'
+                    ),
+                    React.createElement(
+                      'a',
+                      { target: '_blank', href: '/' },
+                      'View on Cemetary Map'
+                    )
                   )
-                );
-              })
-            )
+                )
+              );
+            })
           )
         )
       );
@@ -440,14 +442,18 @@ var ItemsJS = function (_React$Component) {
       var result = this.state.itemsjs.search({
         query: this.state.query,
         filters: this.state.filters,
-        per_page: 20
+        sort: 'name_asc',
+        per_page: 10,
+        filter: function filter(item) {
+          return item.Last_Name !== "";
+        }
       });
-      console.log(result);
+      // console.log(result);
       return result;
     }
   }]);
 
-  return ItemsJS;
+  return Search;
 }(React.Component);
 
 var _initialiseProps = function _initialiseProps() {
@@ -477,4 +483,4 @@ var _initialiseProps = function _initialiseProps() {
   };
 };
 
-ReactDOM.render(React.createElement(ItemsJS, null), document.getElementById('react_search_container'));
+ReactDOM.render(React.createElement(Search, null), document.getElementById('react_search_container'));
