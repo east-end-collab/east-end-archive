@@ -8,6 +8,27 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+function getUrlVars() {
+  var vars = {};
+  var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+    vars[key] = value;
+  });
+  return vars;
+}
+var encodeUrlVars = function encodeUrlVars(vars) {
+  var varStr = Object.keys(vars).map(function (key) {
+    return key + '=' + vars[key];
+  }).join('&');
+  return varStr;
+};
+function getUrlParam(parameter, defaultvalue) {
+  var urlparameter = defaultvalue;
+  if (window.location.href.indexOf(parameter) > -1) {
+    urlparameter = getUrlVars()[parameter];
+  }
+  return urlparameter;
+}
+
 var Search = function (_React$Component) {
   _inherits(Search, _React$Component);
 
@@ -28,23 +49,23 @@ var Search = function (_React$Component) {
           }
         },
         aggregations: {
-          "Birth_Year": {
+          Birth_Year: {
             title: 'Birth Year',
             size: 10
           },
-          "Death_Year": {
+          Death_Year: {
             title: 'Death Year',
             size: 10
           },
-          "Cemetery_Name": {
+          Cemetery_Name: {
             title: 'Cemetary',
             size: 10
           },
-          "Fraternal_Organization": {
+          Fraternal_Organization: {
             title: 'Fraternal Organization',
             size: 10
           },
-          "Church_Affiliation": {
+          Church_Affiliation: {
             title: 'Fraternal Organization',
             size: 10
           }
@@ -54,12 +75,16 @@ var Search = function (_React$Component) {
 
     var newFilters = {};
     Object.keys(_this.state.configuration.aggregations).map(function (v) {
+      var urlVars = getUrlVars();
       newFilters[v] = [];
+      if (urlVars.hasOwnProperty(v)) {
+        newFilters[v] = [decodeURI(urlVars[v])];
+      };
     });
 
     _this.state = Object.assign({}, _this.state, {
       itemsjs: itemsjs(allRecords, _this.state.configuration),
-      query: '',
+      query: decodeURI(getUrlParam('query', '')),
       filters: newFilters
     });
     return _this;
@@ -68,29 +93,43 @@ var Search = function (_React$Component) {
   _createClass(Search, [{
     key: 'changeQuery',
     value: function changeQuery(e) {
+      var query = e.target.value;
+      var urlVars = getUrlVars();
+      if (query.match(/(\?|\=|\&|\/|\_|\:)/g)) {
+        return;
+      }
+      if (query !== "") {
+        var newUrlVars = Object.assign({}, urlVars, { query: query });
+        var urlVarStr = encodeUrlVars(newUrlVars);
+        window.history.pushState("", "", '?' + urlVarStr);
+      } else {
+        delete urlVars['query'];
+        var _urlVarStr = encodeUrlVars(urlVars);
+        window.history.pushState("", "", '?' + _urlVarStr);
+      }
       this.setState({
-        query: e.target.value
+        query: query
       });
     }
-  }, {
-    key: 'reset',
-    value: function reset() {
-      var newFilters = {};
-      Object.keys(this.state.configuration.aggregations).map(function (v) {
-        newFilters[v] = [];
-      });
-      this.setState({
-        filters: newFilters,
-        query: ''
-      });
-    }
+
+    // TODO: Make this work
+    // reset() {
+    //   var newFilters = {};
+    //   Object.keys(this.state.configuration.aggregations).map(function (v) {
+    //     newFilters[v] = [];
+    //   })
+    //   this.setState({
+    //     filters: newFilters,
+    //     query: '',
+    //   })
+    // }
+
   }, {
     key: 'render',
     value: function render() {
       var _this2 = this;
 
       console.log('Search performed in ' + this.searchResult.timings.search + ' ms, facets in ' + this.searchResult.timings.facets + ' ms');
-
       return React.createElement(
         'div',
         { className: 'container', style: { marginTop: 0 } },
@@ -464,15 +503,25 @@ var _initialiseProps = function _initialiseProps() {
       var oldFilters = _this3.state.filters;
       var newFilters = oldFilters;
       var check = event.target.checked;
+      var urlVars = getUrlVars();
       if (check) {
+        // update url params
+        urlVars[filterName] = filterValue;
+        var urlVarStr = encodeUrlVars(urlVars);
+        window.history.pushState("", "", '?' + urlVarStr);
+        // update state
         newFilters[filterName].push(filterValue);
-
         _this3.setState({
           filters: newFilters
         });
       } else {
         var index = newFilters[filterName].indexOf(filterValue);
         if (index > -1) {
+          // update url params
+          delete urlVars[filterName];
+          var _urlVarStr2 = encodeUrlVars(urlVars);
+          window.history.pushState("", "", '?' + _urlVarStr2);
+          // update state
           newFilters[filterName].splice(index, 1);
           _this3.setState({
             filters: newFilters

@@ -1,3 +1,21 @@
+function getUrlVars() {
+  var vars = {};
+  var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+      vars[key] = value;
+  });
+  return vars;
+}
+const encodeUrlVars = (vars) => {
+  let varStr = Object.keys(vars).map(key => key + '=' + vars[key]).join('&');
+  return varStr;
+}
+function getUrlParam(parameter, defaultvalue){
+  var urlparameter = defaultvalue;
+  if(window.location.href.indexOf(parameter) > -1){
+      urlparameter = getUrlVars()[parameter];
+      }
+  return urlparameter;
+}
 
 class Search extends React.Component {
   constructor(props) {
@@ -19,23 +37,23 @@ class Search extends React.Component {
           }
         },
         aggregations: {
-          "Birth_Year": {
+          Birth_Year: {
             title: 'Birth Year',
             size: 10
           },
-          "Death_Year": {
+          Death_Year: {
             title: 'Death Year',
             size: 10
           },
-          "Cemetery_Name": {
+          Cemetery_Name: {
             title: 'Cemetary',
             size: 10
           },
-          "Fraternal_Organization": {
+          Fraternal_Organization: {
             title: 'Fraternal Organization',
             size: 10
           },
-          "Church_Affiliation": {
+          Church_Affiliation: {
             title: 'Fraternal Organization',
             size: 10
           },
@@ -45,47 +63,76 @@ class Search extends React.Component {
     
     var newFilters = {};
     Object.keys(this.state.configuration.aggregations).map(function (v) {
+      let urlVars = getUrlVars()
       newFilters[v] = [];
+      if(urlVars.hasOwnProperty(v)){
+        newFilters[v] = [decodeURI(urlVars[v])]
+      };
     })
     
     this.state = {
       ...this.state,
       itemsjs: itemsjs(allRecords, this.state.configuration),
-      query: '',
+      query: decodeURI(getUrlParam('query', '')),
       filters: newFilters,
     }
   }
 
   changeQuery(e) {
+    let query = e.target.value;
+    let urlVars = getUrlVars();
+    if(query.match(/(\?|\=|\&|\/|\_|\:)/g)){
+      return;
+    }
+    if(query !== ""){
+      let newUrlVars = {...urlVars, query: query}
+      let urlVarStr = encodeUrlVars(newUrlVars);  
+      window.history.pushState("", "", `?${urlVarStr}`)
+    } else {
+      delete urlVars['query'];
+      let urlVarStr = encodeUrlVars(urlVars);  
+      window.history.pushState("", "", `?${urlVarStr}`)
+    }
     this.setState({
-      query: e.target.value
+      query: query
     });
   }
 
-  reset() {
-    var newFilters = {};
-    Object.keys(this.state.configuration.aggregations).map(function (v) {
-      newFilters[v] = [];
-    })
-    this.setState({
-      filters: newFilters,
-      query: '',
-    })
-  }
+  // TODO: Make this work
+  // reset() {
+  //   var newFilters = {};
+  //   Object.keys(this.state.configuration.aggregations).map(function (v) {
+  //     newFilters[v] = [];
+  //   })
+  //   this.setState({
+  //     filters: newFilters,
+  //     query: '',
+  //   })
+  // }
 
   handleCheckbox = (filterName, filterValue) => event => {
     const oldFilters = this.state.filters;
     let newFilters = oldFilters;
     let check = event.target.checked;
+    let urlVars = getUrlVars();
     if (check) {
+      // update url params
+      urlVars[filterName] = filterValue;
+      let urlVarStr = encodeUrlVars(urlVars);  
+      window.history.pushState("", "", `?${urlVarStr}`)
+      // update state
       newFilters[filterName].push(filterValue)
-
       this.setState({
         filters: newFilters
       })
     } else {
       var index = newFilters[filterName].indexOf(filterValue);
       if (index > -1) {
+        // update url params
+        delete urlVars[filterName];
+        let urlVarStr = encodeUrlVars(urlVars);  
+        window.history.pushState("", "", `?${urlVarStr}`)
+        // update state
         newFilters[filterName].splice(index, 1);
         this.setState({
           filters: newFilters
@@ -105,19 +152,12 @@ class Search extends React.Component {
     })
     // console.log(result);
     return result
-  }
-;
-  
+  };
+
   render() {
-
     console.log(`Search performed in ${this.searchResult.timings.search} ms, facets in ${this.searchResult.timings.facets} ms`);
-    
     return (
-
-
         <div className="container" style={{ marginTop: 0 }}>
-
-
           <div className="row mt-5">
             <div className="col-md-4 col-xs-4" id="facet-sidebar">
               <nav className="navbar navbar-default pl-0" style={{marginBottom: 0}}>
