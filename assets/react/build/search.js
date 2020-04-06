@@ -40,12 +40,24 @@ var Search = function (_React$Component) {
     _initialiseProps.call(_this);
 
     _this.state = {
+      sort: 'Last_Name',
       configuration: {
-        searchableFields: ['Last_Name', 'First_Name', 'Birth_Year', 'Middle_Name', 'Cemetery Name'],
+        searchableFields: ['Last_Name', 'First_Name', 'Birth_Year', 'Death_Year', 'Middle_Name', 'Cemetery Name'],
         sortings: {
-          name_asc: {
+          Last_Name: {
             field: 'Last_Name',
-            order: 'asc'
+            order: 'asc',
+            title: 'Last Name'
+          },
+          Birth_Year: {
+            field: 'Birth_Year',
+            order: 'asc',
+            title: 'Year of Birth'
+          },
+          Death_Year: {
+            field: 'Death_Year',
+            order: 'asc',
+            title: 'Year of Death'
           }
         },
         aggregations: {
@@ -114,7 +126,7 @@ var Search = function (_React$Component) {
 
     // TODO: Make this work
     // reset() {
-    //   var newFilters = {};
+    //   let newFilters = {};
     //   Object.keys(this.state.configuration.aggregations).map(function (v) {
     //     newFilters[v] = [];
     //   })
@@ -138,7 +150,7 @@ var Search = function (_React$Component) {
           { className: 'row mt-5' },
           React.createElement(
             'div',
-            { className: 'col-md-4 col-xs-4', id: 'facet-sidebar' },
+            { className: 'col-md-4 col-xs-4', id: 'sidebar' },
             React.createElement(
               'nav',
               { className: 'navbar navbar-default pl-0', style: { marginBottom: 0 } },
@@ -170,6 +182,48 @@ var Search = function (_React$Component) {
                 { className: 'badge badge-secondary ml-2' },
                 this.searchResult.pagination.total
               )
+            ),
+            React.createElement(
+              'div',
+              { className: 'sort-section' },
+              React.createElement(
+                'h4',
+                null,
+                React.createElement(
+                  'strong',
+                  null,
+                  'Sort'
+                )
+              ),
+              Object.entries(this.state.configuration.sortings).map(function (sorting, i) {
+                var currentSort = _this2.state.sort;
+                var field_name = sorting[0];
+                var options = sorting[1];
+                var isActive = _this2.state.sort === field_name;
+                var isChecked = isActive && options.order === 'asc';
+
+                return React.createElement(
+                  'label',
+                  { key: i, className: (isActive ? "selected" : "btn-light") + ' btn m-1 facet' },
+                  React.createElement('input', {
+                    type: 'checkbox',
+                    checked: isChecked,
+                    onChange: function onChange() {
+                      return _this2.handleSortToggle(field_name);
+                    }
+                  }),
+                  React.createElement(
+                    'span',
+                    { className: 'pr-2' },
+                    options.title
+                  ),
+                  isActive && React.createElement(
+                    'span',
+                    { className: 'badge badge-secondary' },
+                    isChecked ? '↑' : '↓'
+                  )
+                );
+              })
             ),
             Object.entries(this.searchResult.data.aggregations).map(function (_ref) {
               var _ref2 = _slicedToArray(_ref, 2),
@@ -481,7 +535,7 @@ var Search = function (_React$Component) {
       var result = this.state.itemsjs.search({
         query: this.state.query,
         filters: this.state.filters,
-        sort: 'name_asc',
+        sort: this.state.sort,
         per_page: 10,
         filter: function filter(item) {
           return item.Last_Name !== "";
@@ -529,6 +583,19 @@ var _initialiseProps = function _initialiseProps() {
         }
       }
     };
+  };
+
+  this.handleSortToggle = function (fieldName) {
+    var isCurrentSort = _this3.state.sort === fieldName;
+    if (!isCurrentSort) {
+      _this3.setState({ sort: fieldName });
+    }
+    var currentOrder = _this3.state.configuration.sortings[fieldName].order;
+    var oppositeOrder = currentOrder === 'asc' ? 'desc' : 'asc';
+    _this3.setState(function (prevState) {
+      prevState.configuration.sortings[fieldName].order = oppositeOrder;
+      return prevState;
+    });
   };
 };
 

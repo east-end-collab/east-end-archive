@@ -1,6 +1,6 @@
 function getUrlVars() {
-  var vars = {};
-  var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+  let vars = {};
+  let parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
       vars[key] = value;
   });
   return vars;
@@ -10,7 +10,7 @@ const encodeUrlVars = (vars) => {
   return varStr;
 }
 function getUrlParam(parameter, defaultvalue){
-  var urlparameter = defaultvalue;
+  let urlparameter = defaultvalue;
   if(window.location.href.indexOf(parameter) > -1){
       urlparameter = getUrlVars()[parameter];
       }
@@ -22,19 +22,32 @@ class Search extends React.Component {
     super(props);
     
     this.state = {
+      sort: 'Last_Name',
       configuration: {
         searchableFields: [
           'Last_Name', 
           'First_Name', 
-          'Birth_Year', 
+          'Birth_Year',
+          'Death_Year',
           'Middle_Name', 
           'Cemetery Name',
         ],
         sortings: {
-          name_asc: {
+          Last_Name: {
             field: 'Last_Name',
-            order: 'asc'
-          }
+            order: 'asc',
+            title: 'Last Name'
+          },
+          Birth_Year: {
+            field: 'Birth_Year',
+            order: 'asc',
+            title: 'Year of Birth'
+          },
+          Death_Year: {
+            field: 'Death_Year',
+            order: 'asc',
+            title: 'Year of Death'
+          },
         },
         aggregations: {
           Birth_Year: {
@@ -61,7 +74,7 @@ class Search extends React.Component {
       }
     }
     
-    var newFilters = {};
+    let newFilters = {};
     Object.keys(this.state.configuration.aggregations).map(function (v) {
       let urlVars = getUrlVars()
       newFilters[v] = [];
@@ -100,7 +113,7 @@ class Search extends React.Component {
 
   // TODO: Make this work
   // reset() {
-  //   var newFilters = {};
+  //   let newFilters = {};
   //   Object.keys(this.state.configuration.aggregations).map(function (v) {
   //     newFilters[v] = [];
   //   })
@@ -126,7 +139,7 @@ class Search extends React.Component {
         filters: newFilters
       })
     } else {
-      var index = newFilters[filterName].indexOf(filterValue);
+      let index = newFilters[filterName].indexOf(filterValue);
       if (index > -1) {
         // update url params
         delete urlVars[filterName];
@@ -141,12 +154,25 @@ class Search extends React.Component {
     }
   }
 
+  handleSortToggle = (fieldName) => {
+    let isCurrentSort = (this.state.sort === fieldName)
+    if(!isCurrentSort){
+      this.setState({sort: fieldName})
+    }
+    let currentOrder = this.state.configuration.sortings[fieldName].order;
+    let oppositeOrder = (currentOrder === 'asc') ? 'desc' : 'asc';
+    this.setState((prevState) => {
+      prevState.configuration.sortings[fieldName].order = oppositeOrder
+      return prevState;
+    })
+  }
+
   get searchResult() {
 
-    var result = this.state.itemsjs.search({
+    let result = this.state.itemsjs.search({
       query: this.state.query,
       filters: this.state.filters,
-      sort: 'name_asc',
+      sort: this.state.sort,
       per_page: 10,
       filter: (item) => item.Last_Name !== ""
     })
@@ -159,7 +185,7 @@ class Search extends React.Component {
     return (
         <div className="container" style={{ marginTop: 0 }}>
           <div className="row mt-5">
-            <div className="col-md-4 col-xs-4" id="facet-sidebar">
+            <div className="col-md-4 col-xs-4" id="sidebar">
               <nav className="navbar navbar-default pl-0" style={{marginBottom: 0}}>
                 <div id="navbar">
                   <form className="navbar-form navbar-left" style={{paddingLeft: 0}}>
@@ -174,6 +200,30 @@ class Search extends React.Component {
               Results
               <span className="badge badge-secondary ml-2">{this.searchResult.pagination.total}</span>
             </h3>
+            <div className="sort-section">
+              <h4><strong>Sort</strong></h4>
+              {Object.entries(this.state.configuration.sortings).map((sorting, i) => {
+                let currentSort = this.state.sort;
+                let field_name = sorting[0];
+                let options = sorting[1];
+                let isActive = (this.state.sort === field_name);                
+                let isChecked = isActive && (options.order === 'asc')
+                
+                return(
+                  <label key={i} className={`${isActive ? "selected" : "btn-light"} btn m-1 facet`}>
+                    <input 
+                      type="checkbox" 
+                      checked={isChecked}
+                      onChange={() => this.handleSortToggle(field_name)} 
+                    />
+                    <span className="pr-2" >{options.title}</span>
+                    {isActive &&
+                      <span className="badge badge-secondary">{isChecked ? '↑' : '↓'}</span> 
+                    }
+                  </label>
+                )
+              })}
+            </div>
               {
                 Object.entries(this.searchResult.data.aggregations).map(([key, value]) => {
                   return (

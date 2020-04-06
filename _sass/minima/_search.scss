@@ -1,5 +1,14 @@
 #react_search_container{
-    #facet-sidebar {
+    #sidebar {
+        .sort-section{
+            margin-bottom: $spacing-unit;
+            input {
+                display: none;
+            }
+            .selected{
+                background-color: rgb(79, 144, 151);
+            }  
+        }
         .facet-section{
             margin-bottom: $spacing-unit;
             h5{
