@@ -78,7 +78,7 @@ var Search = function (_React$Component) {
             size: 10
           },
           Church_Affiliation: {
-            title: 'Fraternal Organization',
+            title: 'Church Affiliation',
             size: 10
           }
         }
