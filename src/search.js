@@ -67,7 +67,7 @@ class Search extends React.Component {
             size: 10
           },
           Church_Affiliation: {
-            title: 'Fraternal Organization',
+            title: 'Church Affiliation',
             size: 10
           },
         },
@@ -167,6 +167,10 @@ class Search extends React.Component {
     })
   }
 
+  submitHandler(e) {
+    e.preventDefault();
+  }
+
   get searchResult() {
 
     let result = this.state.itemsjs.search({
@@ -188,7 +192,7 @@ class Search extends React.Component {
             <div className="col-md-4 col-xs-4" id="sidebar">
               <nav className="navbar navbar-default pl-0" style={{marginBottom: 0}}>
                 <div id="navbar">
-                  <form className="navbar-form navbar-left" style={{paddingLeft: 0}}>
+                  <form onSubmit={this.submitHandler} className="navbar-form navbar-left" style={{paddingLeft: 0}}>
                     <div className="form-group">
                       <h1>Search</h1>
                       <input type="text" value={this.state.query} onChange={this.changeQuery.bind(this)} className="form-control" placeholder="Search" />

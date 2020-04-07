@@ -137,6 +137,11 @@ var Search = function (_React$Component) {
     // }
 
   }, {
+    key: 'submitHandler',
+    value: function submitHandler(e) {
+      e.preventDefault();
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _this2 = this;
@@ -159,7 +164,7 @@ var Search = function (_React$Component) {
                 { id: 'navbar' },
                 React.createElement(
                   'form',
-                  { className: 'navbar-form navbar-left', style: { paddingLeft: 0 } },
+                  { onSubmit: this.submitHandler, className: 'navbar-form navbar-left', style: { paddingLeft: 0 } },
                   React.createElement(
                     'div',
                     { className: 'form-group' },
