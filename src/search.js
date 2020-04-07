@@ -1,3 +1,5 @@
+import Pagination from './Pagination.js';
+
 function getUrlVars() {
   let vars = {};
   let parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
@@ -23,6 +25,7 @@ class Search extends React.Component {
     
     this.state = {
       sort: 'Last_Name',
+      page: 1,
       configuration: {
         searchableFields: [
           'Last_Name', 
@@ -90,6 +93,8 @@ class Search extends React.Component {
       filters: newFilters,
     }
   }
+  
+  resetPageNumber = () => this.setState({page: 1})
 
   changeQuery(e) {
     let query = e.target.value;
@@ -124,6 +129,7 @@ class Search extends React.Component {
   // }
 
   handleCheckbox = (filterName, filterValue) => event => {
+    this.resetPageNumber();
     const oldFilters = this.state.filters;
     let newFilters = oldFilters;
     let check = event.target.checked;
@@ -171,6 +177,10 @@ class Search extends React.Component {
     e.preventDefault();
   }
 
+  handleSetPage = (pageNumber) => {    
+    this.setState({page: pageNumber})
+  }
+
   get searchResult() {
 
     let result = this.state.itemsjs.search({
@@ -178,6 +188,7 @@ class Search extends React.Component {
       filters: this.state.filters,
       sort: this.state.sort,
       per_page: 10,
+      page: this.state.page,
       filter: (item) => item.Last_Name !== ""
     })
     // console.log(result);
@@ -258,6 +269,7 @@ class Search extends React.Component {
               }
             </div>
             <div className="col-md-8 col-xs-8" id="result-card-container">
+              <Pagination paginationData={this.searchResult.pagination} onSetPage={this.handleSetPage}/>
               {
               Object.entries(this.searchResult.data.items).map(([key, item]) => {
                 

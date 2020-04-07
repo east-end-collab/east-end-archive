@@ -8,6 +8,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+import Pagination from './Pagination.js';
+
 function getUrlVars() {
   var vars = {};
   var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
@@ -41,6 +43,7 @@ var Search = function (_React$Component) {
 
     _this.state = {
       sort: 'Last_Name',
+      page: 1,
       configuration: {
         searchableFields: ['Last_Name', 'First_Name', 'Birth_Year', 'Death_Year', 'Middle_Name', 'Cemetery Name'],
         sortings: {
@@ -283,6 +286,7 @@ var Search = function (_React$Component) {
           React.createElement(
             'div',
             { className: 'col-md-8 col-xs-8', id: 'result-card-container' },
+            React.createElement(Pagination, { paginationData: this.searchResult.pagination, onSetPage: this.handleSetPage }),
             Object.entries(this.searchResult.data.items).map(function (_ref5) {
               var _ref6 = _slicedToArray(_ref5, 2),
                   key = _ref6[0],
@@ -542,6 +546,7 @@ var Search = function (_React$Component) {
         filters: this.state.filters,
         sort: this.state.sort,
         per_page: 10,
+        page: this.state.page,
         filter: function filter(item) {
           return item.Last_Name !== "";
         }
@@ -557,8 +562,13 @@ var Search = function (_React$Component) {
 var _initialiseProps = function _initialiseProps() {
   var _this3 = this;
 
+  this.resetPageNumber = function () {
+    return _this3.setState({ page: 1 });
+  };
+
   this.handleCheckbox = function (filterName, filterValue) {
     return function (event) {
+      _this3.resetPageNumber();
       var oldFilters = _this3.state.filters;
       var newFilters = oldFilters;
       var check = event.target.checked;
@@ -601,6 +611,10 @@ var _initialiseProps = function _initialiseProps() {
       prevState.configuration.sortings[fieldName].order = oppositeOrder;
       return prevState;
     });
+  };
+
+  this.handleSetPage = function (pageNumber) {
+    _this3.setState({ page: pageNumber });
   };
 };
 
