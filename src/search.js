@@ -53,24 +53,25 @@ class Search extends React.Component {
           },
         },
         aggregations: {
-          Birth_Year: {
-            title: 'Birth Year',
-            size: 10
+          Birth_Decade: {
+            title: 'Decade of Birth',
+            size: 100,
+            sort: 'asc'
           },
-          Death_Year: {
-            title: 'Death Year',
-            size: 10
+          Birth_Month: {
+            title: 'Month of Birth',
+            size: 12
+          },
+          Death_Decade: {
+            title: 'Decade of Death',
+            size: 100
+          },
+          Death_Month: {
+            title: 'Month of Death',
+            size: 12
           },
           Cemetery_Name: {
-            title: 'Cemetary',
-            size: 10
-          },
-          Fraternal_Organization: {
-            title: 'Fraternal Organization',
-            size: 10
-          },
-          Church_Affiliation: {
-            title: 'Church Affiliation',
+            title: 'Cemetery',
             size: 10
           },
         },
@@ -88,7 +89,7 @@ class Search extends React.Component {
     
     this.state = {
       ...this.state,
-      itemsjs: itemsjs(allRecords, this.state.configuration),
+      itemsjs: itemsjs(fullBioRecords, this.state.configuration),
       query: decodeURI(getUrlParam('query', '')),
       filters: newFilters,
     }
@@ -97,6 +98,7 @@ class Search extends React.Component {
   resetPageNumber = () => this.setState({page: 1})
 
   changeQuery(e) {
+    this.resetPageNumber();
     let query = e.target.value;
     let urlVars = getUrlVars();
     if(query.match(/(\?|\=|\&|\/|\_|\:)/g)){
@@ -189,13 +191,14 @@ class Search extends React.Component {
       sort: this.state.sort,
       per_page: 10,
       page: this.state.page,
-      filter: (item) => item.Last_Name !== ""
+      // TODO: Determine if we want to filter out anything
+      // filter: (item) => item.Last_Name !== ""
     })
     // console.log(result);
     return result
   };
 
-  render() {
+  render() {    
     console.log(`Search performed in ${this.searchResult.timings.search} ms, facets in ${this.searchResult.timings.facets} ms`);
     return (
         <div className="container" style={{ marginTop: 0 }}>
@@ -285,7 +288,7 @@ class Search extends React.Component {
                 let findGraveUrl = FindGraveURL ? 
                   FindGraveURL : 
                   (Find_A_Grave ? `https://www.findagrave.com/memorial/${Find_A_Grave.trim()}` : null);
-                let cemetaryName = Cemetery_Name ? Cemetery_Name : null;
+                let CemeteryName = Cemetery_Name ? Cemetery_Name : null;
                 // TODO: Change placeholder image
                 const placeholderImg = "/assets/img/placeholder.jpg"
                 let mediaUrl = Media_URL ? Media_URL : placeholderImg;
@@ -303,7 +306,7 @@ class Search extends React.Component {
                         {`${birthYear} - ${deathYear}`}
                       </p>
                       <p>
-                      {cemetaryName ? <small className="sub-text">{`(${cemetaryName})`}</small> : ""}
+                      {CemeteryName ? <small className="sub-text">{`(${CemeteryName})`}</small> : ""}
                       </p>
                       <div className="rounded-lg p-2 shadow fact-container">
                         <div className="col-sm-6 p-0">
@@ -385,7 +388,7 @@ class Search extends React.Component {
                       </div>
                       <div className="mt-3 link-container">
                         <a target="_blank" href={findGraveUrl}>View on Findagrave.com</a>
-                        <a target="_blank" href="/">View on Cemetary Map</a>
+                        <a target="_blank" href="/">View on Cemetery Map</a>
                       </div>
 
                     </div>

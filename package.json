@@ -20,6 +20,7 @@
   "homepage": "https://github.com/performant-software/east-end-collaboratory#readme",
   "dependencies": {
     "babel-cli": "^6.26.0",
-    "babel-preset-react-app": "^3.1.2"
+    "babel-preset-react-app": "^3.1.2",
+    "csvtojson": "^2.0.10"
   }
 }
