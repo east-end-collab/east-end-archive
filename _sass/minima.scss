@@ -21,13 +21,13 @@ $grey-color-dark:  darken($grey-color, 25%) !default;
 $table-text-align: left !default;
 
 // Width of the content area
-$content-width:    1200px !default;
-
-$on-palm:          600px !default;
-$on-laptop:        800px !default;
+$sm:  576px   !default;
+$md:  768px   !default;
+$lg:  992px   !default;
+$xl:  1200px  !default;
 
 // Use media queries like this:
-@mixin media-query($on-palm) {
+@mixin media-query($sm) {
   .wrapper {
     padding-right: $spacing-unit / 2;
     padding-left: $spacing-unit / 2;
@@ -49,5 +49,7 @@ $on-laptop:        800px !default;
   "minima/layout",
   "minima/syntax-highlighting",
   "minima/search",
-  "minima/pagination"
+  "minima/pagination",
+  "minima/result-card",
+  "minima/person"
 ;

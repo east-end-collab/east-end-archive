@@ -4,27 +4,26 @@
 .site-header {
   border-top: 5px solid $grey-color-dark;
   border-bottom: 1px solid $grey-color-light;
-  min-height: $spacing-unit * 1.865;
-
   // Positioning context for the mobile navigation icon
   position: relative;
+  .flex-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: $spacing-unit 0;
+  }
 }
 
-.site-title {
-  @include relative-font-size(1.625);
-  line-height: $base-line-height * $base-font-size * 2.25;
-  margin-bottom: 0;
-  float: left;
-  font-size: 30px;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: .1em;
-  text-transform: uppercase;
+.site-logo{
+  background-color: white;
+  padding: 3px;
+  border-radius: .8rem;
+  width: 10rem;
 }
 
 .site-nav {
-  float: right;
-  line-height: $base-line-height * $base-font-size * 2.25;
+  margin-bottom: $spacing-unit / 2;
+  margin-left: $spacing-unit;
 
   .nav-trigger {
       display: none;
@@ -36,8 +35,9 @@
 
   .page-link {
     color: $text-color;
-    line-height: $base-line-height;
+    line-height: $base-line-height *2;
     background-color: inherit;
+    display: inline;
 
     // Gaps between nav items, but not on the last one
     &:not(:last-child) {
@@ -45,10 +45,10 @@
     }
   }
 
-  @include media-query($on-palm) {
+  @include media-query($lg) {
     position: absolute;
-    top: 9px;
-    right: $spacing-unit / 2;
+    top: $spacing-unit;
+    right: $spacing-unit;
     background-color: $background-color;
     border: 1px solid $grey-color-light;
     border-radius: 5px;
@@ -61,6 +61,7 @@
       height: 36px;
       z-index: 2;
       cursor: pointer;
+      margin-bottom: 0;
     }
 
     .menu-icon {
@@ -73,7 +74,7 @@
       text-align: center;
 
       > svg {
-        fill: $grey-color-dark;
+        fill: white;
       }
     }
 
@@ -90,6 +91,7 @@
     .page-link {
       display: block;
       padding: 5px 10px;
+      border: none;
 
       &:not(:last-child) {
         margin-right: 0;
@@ -107,67 +109,82 @@
 .site-footer {
   border-top: 1px solid $grey-color-light;
   padding: $spacing-unit 0;
-}
-
-.footer-heading {
-  @include relative-font-size(1.125);
-  margin-bottom: $spacing-unit / 2;
-}
-
-.contact-list,
-.social-media-list {
-  list-style: none;
-  margin-left: 0;
-}
-
-.footer-col-wrapper {
-  @include relative-font-size(0.9375);
-  color: $grey-color;
-  margin-left: -$spacing-unit / 2;
-  @extend %clearfix;
-}
-
-.footer-col {
-  float: left;
-  margin-bottom: $spacing-unit / 2;
-  padding-left: $spacing-unit / 2;
-}
-
-.footer-col-1 {
-  width: -webkit-calc(35% - (#{$spacing-unit} / 2));
-  width:         calc(35% - (#{$spacing-unit} / 2));
-}
-
-.footer-col-2 {
-  width: -webkit-calc(20% - (#{$spacing-unit} / 2));
-  width:         calc(20% - (#{$spacing-unit} / 2));
-}
-
-.footer-col-3 {
-  width: -webkit-calc(45% - (#{$spacing-unit} / 2));
-  width:         calc(45% - (#{$spacing-unit} / 2));
-}
-
-@include media-query($on-laptop) {
-  .footer-col-1,
-  .footer-col-2 {
-    width: -webkit-calc(50% - (#{$spacing-unit} / 2));
-    width:         calc(50% - (#{$spacing-unit} / 2));
-  }
-
-  .footer-col-3 {
-    width: -webkit-calc(100% - (#{$spacing-unit} / 2));
-    width:         calc(100% - (#{$spacing-unit} / 2));
+  .flex-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .footer-heading {
+      @include relative-font-size(1.125);
+      margin-bottom: $spacing-unit / 2;
+    }
+    .logos-container{
+      width: 50%;
+      display: flex;
+      justify-content: space-around;
+      #foee-logo{
+        width: 7rem;
+      }
+      #ur-logo{
+        width: 5rem;
+      }
+      #vcu-logo{
+        width: 9rem;
+      }
+    }
   }
 }
 
-@include media-query($on-palm) {
-  .footer-col {
-    float: none;
-    width: -webkit-calc(100% - (#{$spacing-unit} / 2));
-    width:         calc(100% - (#{$spacing-unit} / 2));
-  }
-}
+
+
+
+// .footer-col-wrapper {
+//   @include relative-font-size(0.9375);
+//   color: $grey-color;
+//   margin-left: -$spacing-unit / 2;
+//   @extend %clearfix;
+// }
+
+// .footer-col {
+//   float: left;
+//   margin-bottom: $spacing-unit / 2;
+//   padding-left: $spacing-unit / 2;
+// }
+
+// .footer-col-1 {
+//   width: -webkit-calc(35% - (#{$spacing-unit} / 2));
+//   width:         calc(35% - (#{$spacing-unit} / 2));
+// }
+
+// .footer-col-2 {
+//   width: -webkit-calc(20% - (#{$spacing-unit} / 2));
+//   width:         calc(20% - (#{$spacing-unit} / 2));
+// }
+
+// .footer-col-3 {
+//   width: -webkit-calc(45% - (#{$spacing-unit} / 2));
+//   width:         calc(45% - (#{$spacing-unit} / 2));
+// }
+
+// @include media-query($md) {
+//   .footer-col-1,
+//   .footer-col-2 {
+//     width: -webkit-calc(50% - (#{$spacing-unit} / 2));
+//     width:         calc(50% - (#{$spacing-unit} / 2));
+//   }
+
+//   .footer-col-3 {
+//     width: -webkit-calc(100% - (#{$spacing-unit} / 2));
+//     width:         calc(100% - (#{$spacing-unit} / 2));
+//   }
+// }
+
+// @include media-query($sm) {
+//   .footer-col {
+//     float: none;
+//     width: -webkit-calc(100% - (#{$spacing-unit} / 2));
+//     width:         calc(100% - (#{$spacing-unit} / 2));
+//   }
+// }
 
 
 
@@ -220,7 +237,7 @@
   letter-spacing: -1px;
   line-height: 1;
 
-  @include media-query($on-laptop) {
+  @include media-query($md) {
     @include relative-font-size(2.25);
   }
 }
@@ -231,7 +248,7 @@
   h2 {
     @include relative-font-size(2);
 
-    @include media-query($on-laptop) {
+    @include media-query($md) {
       @include relative-font-size(1.75);
     }
   }
@@ -239,7 +256,7 @@
   h3 {
     @include relative-font-size(1.625);
 
-    @include media-query($on-laptop) {
+    @include media-query($md) {
       @include relative-font-size(1.375);
     }
   }
@@ -247,7 +264,7 @@
   h4 {
     @include relative-font-size(1.25);
 
-    @include media-query($on-laptop) {
+    @include media-query($md) {
       @include relative-font-size(1.125);
     }
   }

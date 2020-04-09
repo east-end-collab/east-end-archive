@@ -48,7 +48,7 @@ const Pagination = (props) => {
                             style={isFirstPage ? {color: 'lightgray'} : {color: 'black'}}
                             onClick={() => handleSetPageButton(1)}
                         >
-                            First
+                            <i className="fas fa-fast-backward"></i>
                         </button>  
                         <button  
                             className="btn btn-light border-dark"
@@ -56,12 +56,13 @@ const Pagination = (props) => {
                             style={isFirstPage ? {color: 'lightgray'} : {color: 'black'}}
                             onClick={() => handleSetPageButton(currentPage - 1)}
                         >
-                            Previous
+                            <i className="fas fa-step-backward"></i>
                         </button>
                   
                     </div>
     
-                    <div className='input-page-container mx-5'>
+                    <div className='input-page-container mx-1'>
+                        <span>Page</span>
                         <input 
                             style={state.error ? {color: 'red'} : {color: 'inherit'}}
                             type="number" 
@@ -78,7 +79,7 @@ const Pagination = (props) => {
                             style={isLastPage ? {color: 'lightgray'} : {color: 'black'}}
                             onClick={() => handleSetPageButton(currentPage + 1)}
                         >
-                            Next
+                            <i className="fas fa-step-forward"></i>
                         </button>
                         <button  
                             className="btn btn-light border-dark"
@@ -86,7 +87,7 @@ const Pagination = (props) => {
                             style={isLastPage ? {color: 'lightgray'} : {color: 'black'}}
                             onClick={() => handleSetPageButton(totalPageNumber)}
                         >
-                            Last
+                            <i className="fas fa-fast-forward"></i>
                         </button>
                     </div>
                 </div>

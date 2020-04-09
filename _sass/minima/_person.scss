@@ -1,0 +1,59 @@
+.person{
+    h2{
+        margin: $spacing-unit 0;
+    }
+    .fact-container{
+        display: flex;
+        flex-wrap: wrap;
+        .fact-cell{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            border: 1px dashed gray;
+            width: 250px;
+            padding: 1rem 1rem 0 1rem;
+            text-align: center;
+            .fact{
+                margin-bottom: 10px;
+            }
+            .fact-label{
+                color: rgb(121, 120, 120);
+                font-size: .85rem;
+                margin-top: auto;
+                margin-bottom: 5px;
+            }
+            p{
+                margin: 0;
+                word-wrap: break-word;
+            }
+        }
+    }
+    .full-bio-section{
+        display: flex;
+        flex-direction: column;
+        .full-bio-hero{
+            display: flex;
+            margin-bottom: $spacing-unit;
+            img{
+                max-width: 100%; 
+                max-height: 400px
+            }
+            .hero-text{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                .link-container{
+                    margin-top: auto;
+                    display: flex;
+                    justify-content: space-around;
+                }
+            }
+        }   
+    }
+    .other-records-section{
+        h4{
+            margin: $spacing-unit 0;
+        }
+    }
+}

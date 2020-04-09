@@ -1,0 +1,122 @@
+---
+layout: default
+---
+
+{% if page.First_Name != null and page.First_Name != "" %}
+    {% assign firstName = page.First_Name %}
+{% else %}
+    {% assign firstName = "<span class='unknown'>[unknown]</span>" %}
+{% endif %}
+{% if page.Last_Name != null and page.Last_Name != "" %}
+    {% assign lastName = page.Last_Name %}
+{% else %}
+    {% assign lastName = "<span class='unknown'>[unknown]</span>" %}
+{% endif %}
+{% if page.Birth_Year != null and page.Birth_Year != "" %}
+    {% assign birthYear = page.Birth_Year %}
+{% else %}
+    {% assign birthYear = "<span class='unknown'>[unknown]</span>" %}
+{% endif %}
+{% if page.Death_Year != null and page.Death_Year != "" %}
+    {% assign deathYear = page.Death_Year %}
+{% else %}
+    {% assign deathYear = "<span class='unknown'>[unknown]</span>" %}
+{% endif %}
+
+{% assign placeholderImg = "/assets/img/placeholder.jpg" %}
+
+{% assign suppressedFields = 
+    "Death_Primary, Death_Secondary, Race_(as_it_appears_on_document),
+    Name_of_Master_or_Mistress, Plantation, GIS_ID, Stone_Broken,
+    Notes, Marker_Transcription, CollectedBy, Collection_Date,
+    Is_this_the_only_marker_for_this_person?,
+    Number_of_photos_taken_(and_file_names,_if_known)"
+%}
+{% assign redundantFields = 
+    "
+        Birth_Decade, Death_Decade, Media_URL, FindGraveURL
+    " 
+%}
+{% assign varCount = site.data.full_records[0] | size %}
+
+
+<div class="person">
+    <div class="full-bio-section">
+        <div class="full-bio-hero">
+            {% if page.Media_URL != null and page.Media_URL != "" %}
+                <img src="{{page.Media_URL}}" />
+            {% else %}
+                <img src="{{placeholderImg}}"/>
+            {% endif %}
+            <div class="hero-text">
+                <h1>
+                    {{page.Prefix}} {{firstName}} {{page.Middle_Name}} {{lastName}} {{page.Suffix}}
+                </h1>
+                <h3>
+                    ca. {{birthYear}} - {{deathYear}}
+                </h3>
+                
+                {% if page.Birth_Location != null and page.Birth_Location != "" %}
+                    <h5>
+                        Born in {{page.Birth_Location}}
+                    </h5>
+                {% endif %}
+                
+                {% if page.Death_Location != null and page.Death_Location != "" %}
+                    <h5>
+                        Died in {{page.Death_Location}}
+                    </h5>
+                {% endif %}
+                
+                <div class="link-container">
+                    <a href="{{page.FindGraveURL}}" target="_blank">Findagrave.com <i class="fas fa-external-link-alt"></i></a>
+                    <a href="{{page.Map_Url}}" target="_blank">Cemetary Map <i class="fas fa-external-link-alt"></i></a>
+                    <a href="{{page.EastEndCemeteryRVA_URL}}" target="_blank">EastEndCemetary Profile <i class="fas fa-external-link-alt"></i></a>
+                </div>    
+            </div>
+        </div>
+        
+        <h2>Complete Biographical Record</h2>
+        <div class="fact-container">
+            {% for fact in page offset: 2 limit: varCount %}
+                {% if suppressedFields contains fact[0] or redundantFields contains fact[0] or fact[1] == null or fact[1] == "" %}
+                   {% continue %}
+                {% endif %}
+                <div class="fact-cell">
+                    <p class="fact">
+                        {{fact[1]}}
+                    </p>
+                    <p class="fact-label">
+                        {{fact[0] | replace: '_', ' '}}
+                    </p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+    <div class="other-records-section">
+        <h2>Other Records</h2>
+        {% assign counter = 0 %}
+        {% for record in site.data.all_records %}
+            {% if record.FindGrave_ID == page.FindGrave_ID and record.Full_Biography_Record != 'TRUE' %}
+                {% assign counter = counter | plus: 1 %}
+                <h4>Record #{{ counter }} </h4>
+                <div class="fact-container">
+                    {% for fact in record %}
+                        {% if suppressedFields contains fact[0] or redundantFields contains fact[0] or fact[1] == null or fact[1] == "" %}
+                            {% continue %}
+                        {% endif %}
+                        <div class="fact-cell">
+                            <p class="fact">
+                                {{fact[1]}}
+                            </p>
+                            <p class="fact-label">
+                                {{fact[0] | replace: '_', ' '}}
+                            </p>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endfor %}    
+    </div>
+</div>

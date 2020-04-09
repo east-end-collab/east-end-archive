@@ -60,7 +60,7 @@ var Pagination = function Pagination(props) {
                         return handleSetPageButton(1);
                     }
                 },
-                'First'
+                React.createElement('i', { className: 'fas fa-fast-backward' })
             ),
             React.createElement(
                 'button',
@@ -72,12 +72,17 @@ var Pagination = function Pagination(props) {
                         return handleSetPageButton(currentPage - 1);
                     }
                 },
-                'Previous'
+                React.createElement('i', { className: 'fas fa-step-backward' })
             )
         ),
         React.createElement(
             'div',
-            { className: 'input-page-container mx-5' },
+            { className: 'input-page-container mx-1' },
+            React.createElement(
+                'span',
+                null,
+                'Page'
+            ),
             React.createElement('input', {
                 style: state.error ? { color: 'red' } : { color: 'inherit' },
                 type: 'number',
@@ -104,7 +109,7 @@ var Pagination = function Pagination(props) {
                         return handleSetPageButton(currentPage + 1);
                     }
                 },
-                'Next'
+                React.createElement('i', { className: 'fas fa-step-forward' })
             ),
             React.createElement(
                 'button',
@@ -116,7 +121,7 @@ var Pagination = function Pagination(props) {
                         return handleSetPageButton(totalPageNumber);
                     }
                 },
-                'Last'
+                React.createElement('i', { className: 'fas fa-fast-forward' })
             )
         )
     );
