@@ -64,24 +64,25 @@ var Search = function (_React$Component) {
           }
         },
         aggregations: {
-          Birth_Year: {
-            title: 'Birth Year',
-            size: 10
+          Birth_Decade: {
+            title: 'Decade of Birth',
+            size: 100,
+            sort: 'asc'
           },
-          Death_Year: {
-            title: 'Death Year',
-            size: 10
+          Birth_Month: {
+            title: 'Month of Birth',
+            size: 12
+          },
+          Death_Decade: {
+            title: 'Decade of Death',
+            size: 100
+          },
+          Death_Month: {
+            title: 'Month of Death',
+            size: 12
           },
           Cemetery_Name: {
-            title: 'Cemetary',
-            size: 10
-          },
-          Fraternal_Organization: {
-            title: 'Fraternal Organization',
-            size: 10
-          },
-          Church_Affiliation: {
-            title: 'Church Affiliation',
+            title: 'Cemetery',
             size: 10
           }
         }
@@ -98,7 +99,7 @@ var Search = function (_React$Component) {
     });
 
     _this.state = Object.assign({}, _this.state, {
-      itemsjs: itemsjs(allRecords, _this.state.configuration),
+      itemsjs: itemsjs(fullBioRecords, _this.state.configuration),
       query: decodeURI(getUrlParam('query', '')),
       filters: newFilters
     });
@@ -108,6 +109,7 @@ var Search = function (_React$Component) {
   _createClass(Search, [{
     key: 'changeQuery',
     value: function changeQuery(e) {
+      this.resetPageNumber();
       var query = e.target.value;
       var urlVars = getUrlVars();
       if (query.match(/(\?|\=|\&|\/|\_|\:)/g)) {
@@ -307,7 +309,7 @@ var Search = function (_React$Component) {
               var birthYear = Birth_Year ? Birth_Year : "?";
               var deathYear = Death_Year ? Death_Year : "?";
               var findGraveUrl = FindGraveURL ? FindGraveURL : Find_A_Grave ? 'https://www.findagrave.com/memorial/' + Find_A_Grave.trim() : null;
-              var cemetaryName = Cemetery_Name ? Cemetery_Name : null;
+              var CemeteryName = Cemetery_Name ? Cemetery_Name : null;
               // TODO: Change placeholder image
               var placeholderImg = "/assets/img/placeholder.jpg";
               var mediaUrl = Media_URL ? Media_URL : placeholderImg;
@@ -338,10 +340,10 @@ var Search = function (_React$Component) {
                   React.createElement(
                     'p',
                     null,
-                    cemetaryName ? React.createElement(
+                    CemeteryName ? React.createElement(
                       'small',
                       { className: 'sub-text' },
-                      '(' + cemetaryName + ')'
+                      '(' + CemeteryName + ')'
                     ) : ""
                   ),
                   React.createElement(
@@ -527,7 +529,7 @@ var Search = function (_React$Component) {
                     React.createElement(
                       'a',
                       { target: '_blank', href: '/' },
-                      'View on Cemetary Map'
+                      'View on Cemetery Map'
                     )
                   )
                 )
@@ -546,10 +548,9 @@ var Search = function (_React$Component) {
         filters: this.state.filters,
         sort: this.state.sort,
         per_page: 10,
-        page: this.state.page,
-        filter: function filter(item) {
-          return item.Last_Name !== "";
-        }
+        page: this.state.page
+        // TODO: Determine if we want to filter out anything
+        // filter: (item) => item.Last_Name !== ""
       });
       // console.log(result);
       return result;
