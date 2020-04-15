@@ -1,0 +1,9 @@
+---
+layout: page
+---
+<div id="links-container">
+    {% for link in page.links %}
+        <a target="_blank" href="{{link.url}}">{{link.label}}</a>
+        <p> {{link.description}} </p>
+    {% endfor %}
+</div>
