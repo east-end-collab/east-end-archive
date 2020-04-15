@@ -106,10 +106,6 @@ a {
   color: $brand-color;
   text-decoration: none;
 
-  &:visited {
-    color: darken($brand-color, 15%);
-  }
-
   &:hover {
     color: $text-color;
     text-decoration: underline;
@@ -124,6 +120,13 @@ a {
   }
 }
 
+.contact-form{
+  margin-bottom: $spacing-unit;
+  button{
+    background-color: $brand-color;
+    font-weight: bold;
+  }
+}
 
 /**
  * Blockquotes

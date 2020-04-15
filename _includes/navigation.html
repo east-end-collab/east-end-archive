@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-dark site-header">
+  <a class="navbar-brand" href="{{ "/" | relative_url }}">
+    <img class="site-logo" src="/assets/img/eec_logo_light.png"/>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  {% assign navurl = page.url | remove: 'index.html' %}
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto text-right">
+      {% for item in include.navigation %}
+      <li class="nav-item"
+        {% if item.url == "/search" %}
+          id="search-nav-item"
+        {% endif %}
+      >
+        <a 
+          {% if item.url == navurl %} 
+            class="nav-link active"
+            {% else %}
+            class="nav-link"
+          {% endif %}
+          href="{{ item.url }}"
+        >
+          {{ item.text }}
+          {% if item.url == "/search" %}
+            <i class="fas fa-search"></i>
+          {% endif %}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+
+  </div>
+</nav>

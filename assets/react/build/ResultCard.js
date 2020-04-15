@@ -28,24 +28,19 @@ var ResultCard = function ResultCard(props) {
     var lastName = isUnknown(Last_Name) ? React.createElement(Unknown, null) : Last_Name;
     var birthYear = isUnknown(Birth_Year) ? React.createElement(Unknown, null) : Birth_Year;
     var deathYear = isUnknown(Death_Year) ? React.createElement(Unknown, null) : Death_Year;
-    // TODO: Change placeholder image (JK to provide)
-    var placeholderImg = "/assets/img/placeholder.jpg";
-    var mediaUrl = Media_URL ? Media_URL : placeholderImg;
-    var addDefaultSrc = function addDefaultSrc(e) {
-        e.target.src = placeholderImg;
-    };
+
     return React.createElement(
         'div',
-        { href: '', className: 'row rounded-lg mb-4 shadow-lg p-4 result-card' },
+        { className: 'row rounded-lg mb-4 shadow-lg p-4 result-card' },
         React.createElement('a', { href: protocol + '//' + host + '/people/' + SSID, className: 'card-link' }),
-        React.createElement(
+        Media_URL && React.createElement(
             'div',
-            { className: 'col-sm-3 p-0 portrait-container' },
-            React.createElement('img', { src: mediaUrl, onError: addDefaultSrc })
+            { className: 'portrait-container' },
+            React.createElement('img', { src: Media_URL })
         ),
         React.createElement(
             'div',
-            { className: 'col-sm-9 pl-4 pr-0 info-container' },
+            { className: 'info-container' },
             React.createElement(
                 'div',
                 null,
