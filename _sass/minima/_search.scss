@@ -1,4 +1,11 @@
 #react_search_container{
+    #search-info-container{
+        margin-bottom: $spacing-unit;
+        margin-top: 5px;
+        .search-info-link{
+            margin-right: 5px;
+        }
+    }
     .main-content {
         justify-content: space-around;
     }
@@ -11,13 +18,15 @@
     -ms-overflow-style: none;
     }
     #sidebar {
+        h1{
+            font-weight: bold;
+        }
         position: -webkit-sticky;
         position: sticky;
         top: 0;
         height: 100vh;
         overflow: scroll;
         .search-field-section{
-            margin-bottom: $spacing-unit;
             display: flex;
             justify-content: space-between;
             align-items: center;

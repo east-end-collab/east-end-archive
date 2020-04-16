@@ -13,6 +13,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 import Pagination from './Pagination.js';
 import ResultCard from './ResultCard.js';
 import CopyUrlButton from './CopyUrlButton.js';
+import SearchInfo from './SearchInfo.js';
 
 function getUrlVars() {
   var vars = {};
@@ -49,7 +50,7 @@ var Search = function (_React$Component) {
       sort: 'Last_Name',
       page: 1,
       configuration: {
-        searchableFields: ['Last_Name', 'First_Name', 'Birth_Year', 'Death_Year', 'Middle_Name', 'Cemetery Name', 'Death_Location', 'Birth_Location', 'Occupation', 'Find_A_Grave', 'Inscription_Type', 'Type', 'Document_Type'],
+        searchableFields: ['First_Name', 'Middle_Name', 'Last_Name', 'Birth_Year', 'Death_Year', 'Birth_Location', 'Death_Location', 'Address', 'Cemetery Name', 'Church-affiliation', 'Funeral_Home', 'Occupation', 'Employer', 'Fraternal_and_Beneficial_Organizations', 'FindGrave_ID', 'Notes_and_Clarifications', 'Military_Service', 'Type'],
         sortings: {
           Last_Name: {
             field: 'Last_Name',
@@ -70,15 +71,8 @@ var Search = function (_React$Component) {
         aggregations: {
           Birth_Decade: {
             title: 'Decade of Birth',
-            conjunction: true,
-            size: 50,
-            sort: 'term',
-            order: 'asc'
-          },
-          Birth_Month: {
-            title: 'Month of Birth',
             conjunction: false,
-            size: 12,
+            size: 50,
             sort: 'term',
             order: 'asc'
           },
@@ -89,10 +83,40 @@ var Search = function (_React$Component) {
             sort: 'term',
             order: 'asc'
           },
-          Death_Month: {
-            title: 'Month of Death',
+          Birth_Location: {
+            title: 'Birth Location',
             conjunction: false,
-            size: 12
+            size: 10
+          },
+          Death_Location: {
+            title: 'Death Location',
+            conjunction: false,
+            size: 10
+          },
+          Employer: {
+            title: 'Employer',
+            conjunction: false,
+            size: 50
+          },
+          Fraternal_and_Beneficial_Organizations: {
+            title: 'Fraternal & Beneficial Orgs.',
+            conjunction: false,
+            size: 50
+          },
+          Church_affiliation: {
+            title: 'Church Affiliation',
+            conjunction: false,
+            size: 50
+          },
+          Military_Service: {
+            title: 'Military Service',
+            conjunction: false,
+            size: 50
+          },
+          Funeral_Home: {
+            title: 'Funeral Home',
+            conjunction: false,
+            size: 10
           },
           Cemetery_Name: {
             title: 'Cemetery',
@@ -169,8 +193,8 @@ var Search = function (_React$Component) {
             { className: 'col-md-4', id: 'sidebar' },
             React.createElement(
               'h1',
-              null,
-              'Search'
+              { className: 'page-title' },
+              'SEARCH'
             ),
             React.createElement(
               'div',
@@ -182,6 +206,7 @@ var Search = function (_React$Component) {
               ),
               React.createElement(CopyUrlButton, null)
             ),
+            React.createElement(SearchInfo, null),
             React.createElement(
               'h3',
               null,
@@ -332,7 +357,6 @@ var Search = function (_React$Component) {
         sort: this.state.sort,
         per_page: 20,
         page: this.state.page
-        // TODO: Determine if we want to filter out anything
         // filter: (item) => item.Last_Name !== ''
       });
       // console.log(result);

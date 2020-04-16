@@ -1,10 +1,4 @@
 title: East End Collaboratory
-description: >- # this means to ignore newlines until "baseurl:"
-  The mission of the East End Collaboratory is to support the community effort to restore East End 
-  Cemetery by engaging students and faculty across disciplines and institutions. Their work entails 
-  the curation and documentation of African American history and culture in Richmond, as well as the 
-  reclamation of the cemetery site. The Collaboratory aims to produce place-based knowledge that 
-  contributes to a community dialogue about our collective past.
 baseurl: "" 
 url: ""
 
@@ -25,15 +19,14 @@ plugins:
   - jekyll-feed
 show_excerpts: true
 header_pages:
-  - home.md
-  - about.md
-  - links.md
-  - news.html
-  - faq.md
-  - contact.html
-  - suggest.html
-  - search.html
+  - pages/links.md
 
+collections:
+  - faqs
+  - links
+  - pages
+
+include: ['_pages']
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to

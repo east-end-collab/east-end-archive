@@ -15,19 +15,16 @@ const ResultCard = (props) => {
     let lastName = isUnknown(Last_Name) ? <Unknown/> : Last_Name;
     let birthYear = isUnknown(Birth_Year) ? <Unknown/> : Birth_Year;
     let deathYear = isUnknown(Death_Year) ? <Unknown/> : Death_Year;
-    // TODO: Change placeholder image (JK to provide)
-    const placeholderImg = "/assets/img/placeholder.jpg"
-    let mediaUrl = Media_URL ? Media_URL : placeholderImg;
-    const addDefaultSrc = e => {
-        e.target.src = placeholderImg
-    }
+
     return (
-        <div href="" className="row rounded-lg mb-4 shadow-lg p-4 result-card">
+        <div className="row rounded-lg mb-4 shadow-lg p-4 result-card">
             <a href={`${protocol}//${host}/people/${SSID}`} className="card-link"></a>
-            <div className="col-sm-3 p-0 portrait-container">
-                <img src={mediaUrl} onError={addDefaultSrc}/>
+            {Media_URL &&
+            <div className='portrait-container'>
+                <img src={Media_URL}/>
             </div>
-            <div className="col-sm-9 pl-4 pr-0 info-container">
+            }
+            <div className='info-container'>
                 <div>
                     <h4>
                         {Prefix} {firstName} {Middle_Name} {lastName} {Suffix}
