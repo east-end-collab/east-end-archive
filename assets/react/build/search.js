@@ -50,7 +50,7 @@ var Search = function (_React$Component) {
       sort: 'Last_Name',
       page: 1,
       configuration: {
-        searchableFields: ['First_Name', 'Middle_Name', 'Last_Name', 'Birth_Year', 'Death_Year', 'Birth_Location', 'Death_Location', 'Address', 'Cemetery Name', 'Church-affiliation', 'Funeral_Home', 'Occupation', 'Employer', 'Fraternal_and_Beneficial_Organizations', 'FindGrave_ID', 'Notes_and_Clarifications', 'Military_Service', 'Type'],
+        searchableFields: ['First_Name', 'Middle_Name', 'Last_Name', 'Birth_Year', 'Death_Year', 'Birth_Location', 'Death_Location', 'Address', 'Cemetery Name', 'Church_affiliation', 'Funeral_Home', 'Occupation', 'Employer', 'Fraternal_and_Beneficial_Organizations', 'FindGrave_ID', 'Notes_and_Clarifications', 'Military_Service', 'Type'],
         sortings: {
           Last_Name: {
             field: 'Last_Name',
@@ -96,22 +96,22 @@ var Search = function (_React$Component) {
           Employer: {
             title: 'Employer',
             conjunction: false,
-            size: 50
+            size: 10
           },
           Fraternal_and_Beneficial_Organizations: {
             title: 'Fraternal & Beneficial Orgs.',
             conjunction: false,
-            size: 50
+            size: 10
           },
           Church_affiliation: {
             title: 'Church Affiliation',
             conjunction: false,
-            size: 50
+            size: 10
           },
           Military_Service: {
             title: 'Military Service',
             conjunction: false,
-            size: 50
+            size: 10
           },
           Funeral_Home: {
             title: 'Funeral Home',
@@ -359,7 +359,6 @@ var Search = function (_React$Component) {
         page: this.state.page
         // filter: (item) => item.Last_Name !== ''
       });
-      // console.log(result);
       return result;
     }
   }]);

@@ -5,11 +5,11 @@ url: ""
 page_gen:
   # - data: 'test_records'
   #   template: 'person'
-  #   name: 'SSID'
+  #   name: '_SSID'
   #   dir: 'people'
   - data: 'full_records'
     template: 'person'
-    name: 'SSID'
+    name: '_SSID'
     dir: 'people'
 
 
@@ -18,8 +18,6 @@ theme: minima
 plugins:
   - jekyll-feed
 show_excerpts: true
-header_pages:
-  - pages/links.md
 
 collections:
   - faqs
