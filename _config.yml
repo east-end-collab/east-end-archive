@@ -5,11 +5,11 @@ url: ""
 page_gen:
   # - data: 'test_records'
   #   template: 'person'
-  #   name: 'SSID'
+  #   name: '_SSID'
   #   dir: 'people'
   - data: 'full_records'
     template: 'person'
-    name: 'SSID'
+    name: '_SSID'
     dir: 'people'
 
 
@@ -18,15 +18,11 @@ theme: minima
 plugins:
   - jekyll-feed
 show_excerpts: true
-header_pages:
-  - pages/links.md
 
 collections:
-  - faqs
   - links
   - pages
 
-include: ['_pages']
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to

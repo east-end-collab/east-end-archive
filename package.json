@@ -21,6 +21,6 @@
   "dependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-react-app": "^3.1.2",
-    "csvtojson": "^2.0.10"
+    "csv-parser": "^2.3.2"
   }
 }

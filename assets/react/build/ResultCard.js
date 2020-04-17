@@ -10,7 +10,7 @@ var ResultCard = function ResultCard(props) {
         Death_Year = result.Death_Year,
         Birth_Location = result.Birth_Location,
         Death_Location = result.Death_Location,
-        SSID = result.SSID;
+        _SSID = result._SSID;
 
     var Unknown = function Unknown() {
         return React.createElement(
@@ -32,7 +32,7 @@ var ResultCard = function ResultCard(props) {
     return React.createElement(
         'div',
         { className: 'row rounded-lg mb-4 shadow-lg p-4 result-card' },
-        React.createElement('a', { href: protocol + '//' + host + '/people/' + SSID, className: 'card-link' }),
+        React.createElement('a', { href: protocol + '//' + host + '/people/' + _SSID, className: 'card-link' }),
         Media_URL && React.createElement(
             'div',
             { className: 'portrait-container' },

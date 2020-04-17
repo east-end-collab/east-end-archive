@@ -24,15 +24,15 @@ layout: default
 {% endif %}
 
 {% assign suppressedFields = 
-    "Death_Primary, Death_Secondary, Race_(as_it_appears_on_document),
+    "Death_Primary, Death_Secondary, Race_as_it_appears_on_document,
     Name_of_Master_or_Mistress, Plantation, GIS_ID, Stone_Broken,
-    Notes, Marker_Transcription, CollectedBy, Collection_Date,
-    Is_this_the_only_marker_for_this_person?,
-    Number_of_photos_taken_(and_file_names,_if_known)"
+    Notes, Marker_Transcription, CollectedBy, Collected_By, Collection_Date,
+    Is_this_the_only_marker_for_this_person,
+    Number_of_photos_taken_and_file_names_if_known"
 %}
 {% assign redundantFields = 
     "
-        Birth_Decade, Death_Decade, Media_URL, FindGraveURL
+        Birth_Decade, Death_Decade, Media_URL, FindGraveURL, Full_Biography_Record
     " 
 %}
 {% assign varCount = site.data.full_records[0] | size %}

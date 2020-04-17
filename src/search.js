@@ -34,7 +34,7 @@ class Search extends React.Component {
           'First_Name', 'Middle_Name', 'Last_Name',
           'Birth_Year', 'Death_Year',
           'Birth_Location', 'Death_Location', 'Address',
-          'Cemetery Name', 'Church-affiliation', 'Funeral_Home',
+          'Cemetery Name', 'Church_affiliation', 'Funeral_Home',
           'Occupation', 'Employer', 'Fraternal_and_Beneficial_Organizations',
           'FindGrave_ID', 'Notes_and_Clarifications', 'Military_Service',
           'Type',
@@ -84,22 +84,22 @@ class Search extends React.Component {
           Employer: {
             title: 'Employer',
             conjunction: false,
-            size: 50,
+            size: 10,
           },
           Fraternal_and_Beneficial_Organizations: {
             title: 'Fraternal & Beneficial Orgs.',
             conjunction: false,
-            size: 50,
+            size: 10,
           },
           Church_affiliation: {
             title: 'Church Affiliation',
             conjunction: false,
-            size: 50,
+            size: 10,
           },
           Military_Service: {
             title: 'Military Service',
             conjunction: false,
-            size: 50,
+            size: 10,
           },
           Funeral_Home: {
             title: 'Funeral Home',
@@ -246,7 +246,6 @@ class Search extends React.Component {
       page: this.state.page,
       // filter: (item) => item.Last_Name !== ''
     })
-    // console.log(result);
     return result
   };
 
