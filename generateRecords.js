@@ -25,7 +25,7 @@ const readStream = fs.createReadStream(csvSource)
     let fullBioRecords = [];
     results.forEach(record => {
         if (record.Full_Biography_Record === 'TRUE') {
-            const getDecade = year => year ? `${year.slice(0,3)}0's` : '[unknown]';
+            const getDecade = year => year ? `${year.slice(0,3)}0s` : '[unknown]';
             let deathDecade = getDecade(record.Death_Year);
             let birthDecade = getDecade(record.Birth_Year);
             record['Death_Decade'] = deathDecade
