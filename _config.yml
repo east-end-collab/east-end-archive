@@ -5,11 +5,11 @@ url: ""
 page_gen:
   - data: 'test_records'
     template: 'person'
-    name: '_SSID'
+    name: 'SSID'
     dir: 'people'
   # - data: 'full_records'
   #   template: 'person'
-  #   name: '_SSID'
+  #   name: 'SSID'
   #   dir: 'people'
 
 

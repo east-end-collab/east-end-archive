@@ -5,7 +5,7 @@ const ResultCard = (props) => {
         Prefix, First_Name, Middle_Name, Last_Name, Suffix,
         Birth_Year, Death_Year,
         Birth_Location, Death_Location,
-        _SSID,
+        SSID,
       } = result
     const Unknown = () => <span className="sub-text">[unknown]</span>
     const isUnknown = (field) => (field === '' || field.toLowerCase() === 'unknown')
@@ -18,7 +18,7 @@ const ResultCard = (props) => {
 
     return (
         <div className="row rounded-lg mb-4 shadow-lg p-4 result-card">
-            <a href={`${protocol}//${host}/people/${_SSID}`} className="card-link"></a>
+            <a href={`${protocol}//${host}/people/${SSID}`} className="card-link"></a>
             {Media_URL &&
             <div className='portrait-container'>
                 <img src={Media_URL}/>
