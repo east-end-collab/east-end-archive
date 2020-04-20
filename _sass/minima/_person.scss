@@ -48,7 +48,11 @@
         .link-container{
             margin: $spacing-unit 0;
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-around;
+            a{
+                margin: 5px 5px;
+            }
         } 
         h4{
             margin-top: $spacing-unit;

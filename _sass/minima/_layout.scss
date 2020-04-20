@@ -5,7 +5,9 @@
   border-top: 5px solid $grey-color-dark;
   border-bottom: 1px solid $grey-color-light;
   background-color: inherit;
-  padding: $spacing-unit / 2 $spacing-unit * 2.5;
+  @media (min-width: $md) {
+    padding: $spacing-unit / 2 $spacing-unit * 2.5;
+  }
 
   .nav-item{
     .nav-link{
