@@ -1,16 +1,16 @@
-title: East End Collaboratory
+title: East End Cemetery Collaboratory
 baseurl: "" 
 url: ""
 
 page_gen:
-  # - data: 'test_records'
-  #   template: 'person'
-  #   name: '_SSID'
-  #   dir: 'people'
-  - data: 'full_records'
+  - data: 'test_records'
     template: 'person'
     name: '_SSID'
     dir: 'people'
+  # - data: 'full_records'
+  #   template: 'person'
+  #   name: '_SSID'
+  #   dir: 'people'
 
 
 # Build settings

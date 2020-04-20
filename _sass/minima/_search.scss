@@ -21,11 +21,13 @@
         h1{
             font-weight: bold;
         }
-        position: -webkit-sticky;
-        position: sticky;
-        top: 0;
-        height: 100vh;
-        overflow: scroll;
+        @media (min-width: $md) {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow: scroll;
+        }
         .search-field-section{
             display: flex;
             justify-content: space-between;
@@ -54,7 +56,10 @@
             }  
         }
         .filter-header{
-            display: flex;
+            display: none;
+            @media (min-width: $md) {
+                display: flex;
+            }
             align-items: center;
             margin-bottom: 15px;
             h4 {
@@ -68,6 +73,10 @@
             }
         }
         .facet-section{
+            display: none;
+            @media (min-width: $md) {
+                display: block;
+            }
             margin-bottom: $spacing-unit;
             h5{
                 color: rgb(79, 144, 151);
