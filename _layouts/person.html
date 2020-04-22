@@ -27,22 +27,21 @@ layout: default
     "Death_Primary, Death_Secondary, Race_as_it_appears_on_document,
     Name_of_Master_or_Mistress, Plantation, GIS_ID, Stone_Broken,
     Notes, Marker_Transcription, CollectedBy, Collected_By, Collection_Date,
-    Is_this_the_only_marker_for_this_person,
-    Number_of_photos_taken_and_file_names_if_known"
+    Is_this_the_only_marker_for_this_person, SSID, Data_Source,
+    Number_of_photos_taken_and_file_names_if_known,
+    content, dir, name, path, url, layout, title"
 %}
 {% assign redundantFields = 
     "
         Birth_Decade, Death_Decade, Media_URL, FindGraveURL, Full_Biography_Record
     " 
 %}
-{% assign varCount = site.data.full_records[0] | size %}
-
 
 <div class="person">
     <div class="full-bio-section">
         <div class="full-bio-hero">
             {% if page.Media_URL != '' %}
-                <img src={{page.Media_URL}} />
+                <img src={{page.Media_URL}} alt="portrait"/>
             {% endif %}
             <div class="hero-text">
                 <h1>
@@ -82,7 +81,7 @@ layout: default
 
         <h4>Complete Biographical Record</h4>
         <div class="card flex-row card-body text-dark fact-container">
-            {% for fact in page offset: 2 limit: varCount %}
+            {% for fact in page offset: 2 %}
                 {% if suppressedFields contains fact[0] or redundantFields contains fact[0] or fact[1] == null or fact[1] == "" %}
                    {% continue %}
                 {% endif %}
@@ -101,22 +100,30 @@ layout: default
     <div class="other-records-section">
         {% for record in site.data.all_records %}
             {% if record.FindGrave_ID == page.FindGrave_ID and record.Full_Biography_Record != 'TRUE' and record.Document_Type != '' %}
-                {% assign counter = counter | plus: 1 %}
                 <h4>{{record.Document_Type}}</h4>
-                <div class="card flex-row card-body text-dark fact-container">
-                    {% for fact in record %}
-                        {% if suppressedFields contains fact[0] or redundantFields contains fact[0] or fact[1] == null or fact[1] == "" %}
-                            {% continue %}
-                        {% endif %}
-                        <div class="fact-cell">
-                            <p class="fact-label">
-                                {{fact[0] | replace: '_', ' ' | capitalize }}
-                            </p>
-                            <p class="fact">
-                                {{fact[1]}}
-                            </p>
+                <div class="img-fact-container row">
+                    {% if record.Media_URL != '' %}
+                    <div class="col-md-2">
+                        <img src={{record.Media_URL}} alt={{record.Document_Type}} />       
+                    </div>
+                    {% endif %}
+                    <div class="col-md">
+                        <div class="card flex-row card-body text-dark fact-container">
+                            {% for fact in record %}
+                                {% if suppressedFields contains fact[0] or redundantFields contains fact[0] or fact[1] == null or fact[1] == "" %}
+                                    {% continue %}
+                                {% endif %}
+                                <div class="fact-cell">
+                                    <p class="fact-label">
+                                        {{fact[0] | replace: '_', ' ' | capitalize }}
+                                    </p>
+                                    <p class="fact">
+                                        {{fact[1]}}
+                                    </p>
+                                </div>
+                            {% endfor %}
                         </div>
-                    {% endfor %}
+                    </div>
                 </div>
             {% endif %}
         {% endfor %}    
