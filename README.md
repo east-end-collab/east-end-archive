@@ -11,6 +11,59 @@
 8. Click the **Commit changes** button
 9. Wait for the build to finish. Should not take longer than 10-15 minutes. You can check on the status of the build on [Netlify](https://app.netlify.com/)
 
+## Notes about modifying columns in JSTOR or the exported csv file
+
+- No column should ever have the same name / heading as another field (Note, the numbers in brakets (visible in JSTOR) are removed as well as all non-alpha-numeric characters except underscores)
+- Adding a new column is possible but it will be added automatically to the person pages.
+- Reorganizing columns is also possible. This reorganization will be reflected in the person pages.
+- The following fields are explicitly refferred to within the app, changing their field name or removing these columns will have unwanted results.
+    - Suppressed Fields
+        - SupDeath_Primary
+        - Death_Secondary
+        - Race_as_it_appears_on_document
+        - Name_of_Master_or_Mistress
+        - Plantation
+        - GIS_ID
+        - Stone_Broken
+        - Notes
+        - Marker_Transcription
+        - CollectedBy
+        - Collected_By
+        - Collection_Date
+        - Is_this_the_only_marker_for_this_person
+        - SSID
+        - Data_Source
+        - Number_of_photos_taken_and_file_names_if_known
+    - Other fields explicitly referred to in the app
+        - Birth_Year
+        - Death_Year
+        - Media_URL
+        - FindGraveURL
+        - Map_URL
+        - EastEndCemeteryRVA_URL
+        - Full_Biography_Record
+        - Prefix
+        - First_Name
+        - Last_Name
+        - Middle_Name
+        - Suffix
+        - Birth_Location
+        - Death_Location
+        - FindGrave_ID
+        - Address
+        - Cemetery Name
+        - Church_affiliation
+        - Funeral_Home
+        - Occupation
+        - Employer
+        - Fraternal_and_Beneficial_Organizations
+        - Notes_and_Clarifications
+        - Military_Service
+        - Type
+
+---
+---
+
 # Developer Documentation
 
 ## Steps to set-up local dev environment
@@ -25,9 +78,6 @@ You will need to install [Jekyll](https://jekyllrb.com/docs/installation/) and [
     ```
     page_gen:
     # - data: 'test_records'
-    #   template: 'person'
-    #   name: 'SSID'
-    #   dir: 'people'
     - data: 'full_records'
         template: 'person'
         name: 'SSID'
@@ -37,14 +87,10 @@ You will need to install [Jekyll](https://jekyllrb.com/docs/installation/) and [
     ```
     page_gen:
     - data: 'test_records'
+    # - data: 'full_records'
         template: 'person'
         name: 'SSID'
         dir: 'people'
-    # - data: 'full_records'
-    #   template: 'person'
-    #   name: 'SSID'
-    #   dir: 'people'
-
     ```
 5. To start jekyl server (w/ livereloading) run `bundle exec jekyll serve --livereload` 
 6. If working on the React components, you'll want to run

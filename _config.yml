@@ -4,9 +4,6 @@ url: ""
 
 page_gen:
   # - data: 'test_records'
-  #   template: 'person'
-  #   name: 'SSID'
-  #   dir: 'people'
   - data: 'full_records'
     template: 'person'
     name: 'SSID'
