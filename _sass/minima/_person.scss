@@ -62,8 +62,10 @@
         .img-fact-container{
             text-align: center;
             img{
-                margin-bottom: $spacing-unit;
-                
+                margin-bottom: $spacing-unit; 
+            }
+            .fact{
+                text-align: left;
             }
 
         }
