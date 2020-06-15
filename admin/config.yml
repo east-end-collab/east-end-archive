@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: implement-netlify-cms # Branch to update (optional; defaults to master)
+  repo: east-end-collab/east-end-collaboratory
 
 # This line should *not* be indented
 media_folder: "images/uploads" # Media files will be stored in the repo under images/uploads

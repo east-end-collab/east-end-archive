@@ -1,4 +1,3 @@
-
 # Steps to Update the Records Data
 
 1. Export all records from JSTOR Forum as Excel (`.xls`) file
@@ -92,7 +91,7 @@ You will need to install [Jekyll](https://jekyllrb.com/docs/installation/) and [
         name: 'SSID'
         dir: 'people'
     ```
-5. To start jekyl server (w/ livereloading) run `bundle exec jekyll serve --livereload` 
+5. To start jekyl server (w/ livereloading) run `bundle exec jekyll serve --livereload`
 6. If working on the React components, you'll want to run
     ```
     npx babel --watch src --out-dir assets/react/build --presets react-app/prod
@@ -102,7 +101,7 @@ You will need to install [Jekyll](https://jekyllrb.com/docs/installation/) and [
 ## Generating json files from csv
 - `./generateRecords.js` is run just before build on Netlify (per the `./netlify.toml` file)
 - You can run it manually in dev by running `node generateRecords.js`
-- This generates `._data/all_records.json`, `._data/full_records.json`, and `._data/test_records.json`. 
+- This generates `._data/all_records.json`, `._data/full_records.json`, and `._data/test_records.json`.
 
    - `full_records.json` represents records that are considered to be the full biographical record and is used to generate the search index.
    - `full_records.json` is also used to generate each person page (unless `./_config.yml` is changed to point to `test-records.json`)
