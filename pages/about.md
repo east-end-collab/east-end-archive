@@ -23,16 +23,6 @@ For documents and photographs that are not in the public domain, the archive has
 
 ## Frequently Asked Questions
 
-##### **Excepteur exercitation in sunt incididunt?**
-
-Mollit Lorem est sunt ullamco sint fugiat sunt nulla aute est magna consequat. Cupidatat aliquip ex mollit eu aute. Pariatur ea aute anim amet ipsum sunt sunt ut irure dolore et ex occaecat.
-
-##### **Excepteur exercitation in sunt incididunt?**
-
-Mollit Lorem est sunt ullamco sint fugiat sunt nulla aute est magna consequat. Cupidatat aliquip ex mollit eu aute. Pariatur ea aute anim amet ipsum sunt sunt ut irure dolore et ex occaecat.
-
 ## Contact Us or Submit Content
-
-Deserunt elit minim Lorem qui ad proident eu eiusmod proident cillum velit aute consectetur. Est et incididunt sunt Lorem adipisicing id adipisicing ex minim Lorem ex proident non. Ad sint nostrud et in. Sint nulla deserunt dolore aute labore consequat aliquip culpa voluptate excepteur veniam proident. Amet laborum nisi fugiat sunt officia sit consequat sunt ex. Laboris in eu esse minim dolor magna aliquip officia amet. Dolore proident dolore fugiat incididunt reprehenderit.
 
 {% include contact.html %}
