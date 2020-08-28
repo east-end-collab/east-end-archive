@@ -5,11 +5,7 @@ permalink: /about
 ---
 Welcome to the East End Cemetery Archive, a searchable repository of records and research related to East End Cemetery, a historic African American burial ground in Henrico County and the city of Richmond, Virginia.
 
-
-
 The archive serves as a knowledge hub for descendants, students, scholars, and members of the public who are conducting genealogical and historical research as well as people with more general interests—late 19th- and 20th-century Richmond and Virginia history, African American narratives, Jim Crow, and other topics.
-
-
 
 Created by the [East End Cemetery Collaboratory](https://engage.richmond.edu/cbl/faculty-fellowships/east-end-cemetery-collaboratory.html), the archive brings together a wide range of primary sources—images, death certificates, marriage records, draft registration cards, obituaries, newspaper articles, and more—and data drawn from the cemetery itself, such as GPS coordinates, gravestone photographs, and written descriptions of markers and plots. It is linked to the Collaboratory’s [spatial map](https://dsl.richmond.edu/eastend) of the cemetery, memorial records on [Find A Grave](https://www.findagrave.com/cemetery/50095), and [eastendcemeteryrva.com](http://eastendcemeteryrva.com/), a website by Erin Hollaway Palmer, Brian Palmer, and Jolene Smith that places the cemetery in its historical context providing synthesized biographical narratives of the people buried there and images of the cemetery.
 
