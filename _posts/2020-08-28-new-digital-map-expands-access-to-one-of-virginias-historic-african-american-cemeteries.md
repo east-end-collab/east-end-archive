@@ -2,7 +2,7 @@
 post: blog
 title: New Digital Map Expands Access to One of Virginia's Historic African
   American Cemeteries
-date: 2020-08-28T19:47:45.910Z
+date: 2020-05-28T19:47:00.000Z
 ---
 MAY 28, 2020
 
