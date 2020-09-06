@@ -1,5 +1,5 @@
 ---
-title: How Decades of Racist Housing Policy Left Neighborhoods Sweltering
+title: CONTEXT - How Decades of Racist Housing Policy Left Neighborhoods Sweltering
 layout: post
 date: 2020-09-06T19:17:15.908Z
 ---
