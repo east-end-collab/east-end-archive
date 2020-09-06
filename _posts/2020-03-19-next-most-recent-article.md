@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Monumental Lies
+title: CONTEXT - Monumental Lies
 date: 2018-12-08T20:06:00.000Z
 ---
 The Civil War ended more than 150 years ago, but the Confederacy didn’t completely die with it. Monuments, shrines and museums are found throughout the South. We teamed up with [The Investigative Fund](https://www.theinvestigativefund.org/) to visit dozens of them and found that for devoted followers they inspire a disturbing – and distorted – view of history: Confederate generals as heroes. Slaves who were happy to work for them. That twisted history is also shared with schoolchildren on class trips. And you won’t believe who’s funding these site to keep them running.
