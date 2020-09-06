@@ -1,6 +1,6 @@
 ---
 post: blog
-title: The Costs of the Confederacy
+title: CONTEXT - The Costs of the Confederacy
 date: 2018-12-01T20:19:00.000Z
 ---
 SMITHSONIAN MAGAZINE | December 2018
