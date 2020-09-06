@@ -1,7 +1,7 @@
 ---
 post: blog
-title: "The final resting place of Miami’s black pioneers: A forgotten cemetery
-  in disrepair"
+title: "EAST END AND OTHER HISTORIC BLACK CEMETERIES - The final resting place
+  of Miami’s black pioneers: A forgotten cemetery in disrepair"
 date: 2019-08-02T14:49:00.000Z
 ---
 JULY 27, 2018 07:45 AM , UPDATED AUGUST 02, 2019 10:49 AM
