@@ -9,4 +9,4 @@ Welcome to the East End Cemetery Archive, a searchable repository of records and
 
 ![East End Cemetery](/images/uploads/test.jpg)
 
-# [Search our Archive >>](/search)
+# [Search the Archive >>](/search)
