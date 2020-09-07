@@ -7,6 +7,6 @@ Welcome to the East End Cemetery Archive, a searchable repository of records and
 
 [Learn more about this project >>](/about)
 
-![East End Cemetery](/images/uploads/test.jpg)
+![East End Cemetery. Photograph: Brian Palmer](/images/uploads/test.jpg)
 
 # [Search the Archive >>](/search)
