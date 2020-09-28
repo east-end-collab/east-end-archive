@@ -15,7 +15,7 @@ The back end of the archive is housed in [JSTOR Forum](https://forum.jstor.org/)
 
 For documents and photographs that are not in the public domain, the archive has received permission from their owners to post them here. These materials are owned by those who have granted the archive permission to use them. They are therefore subject to all applicable copyright laws. We ask archive visitors not to grab or copy these images without obtaining written permission from the source, identified in the photo credit.
 
-{% include latest_news.html %}
+
 
 - - -
 
