@@ -19,8 +19,6 @@ The [physical cleanup project ](https://eastendcemetery.wordpress.com/)reclaims 
 
 We designed [eastendcemeteryrva.com ](http://eastendcemeteryrva.com/)as a visually dynamic, interactive resource that features photographs made at East End as well as archival images from public-domain sources and from relatives of the deceased; primary documents about the cemetery and the people buried there; and narratives that we create from these materials. The site is also designed to accept content from users—photos, documents, stories.
 
-<br>
-
 ### Partner Groups and Organizations
 
 [Oakwood Arts](https://oakwoodarts.org/), a Church Hill nonprofit, makes art and careers in creative industries accessible to all through community engagement, inspiring programming, and experiential education.
@@ -30,7 +28,5 @@ We designed [eastendcemeteryrva.com ](http://eastendcemeteryrva.com/)as a visual
 ### Websites
 
 [The Hart Island Project](https://www.hartisland.net/)
-
-
 
 [Richmond Cemeteries](https://www.richmondcemeteries.org/)
