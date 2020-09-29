@@ -18,3 +18,7 @@ A visually dynamic resource, this website situates the cemetery and the people b
 [Richmond Cemeteries](https://www.richmondcemeteries.org/)
 
 [Virginia Untold: The African American Narrative](https://www.virginiamemory.com/collections/aan/)
+
+**Articles** 
+
+[Black Deaths Matter: ](https://www.thenation.com/article/archive/black-deaths-matter/)
