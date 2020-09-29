@@ -21,4 +21,4 @@ A visually dynamic resource, this website situates the cemetery and the people b
 
 **Articles** 
 
-[Black Deaths Matter: ](https://www.thenation.com/article/archive/black-deaths-matter/)
+**Black Deaths Matter:** Historic black cemeteries have devolved into trash dumps and overgrown forests, while tidy Confederate memorials still draw public funding.[ ](https://www.thenation.com/article/archive/black-deaths-matter/)
