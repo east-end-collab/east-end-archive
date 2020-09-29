@@ -19,6 +19,6 @@ A visually dynamic resource, this website situates the cemetery and the people b
 
 [Virginia Untold: The African American Narrative](https://www.virginiamemory.com/collections/aan/)
 
-**Related Articles** 
+**Context and Related Articles** 
 
 **[Black Deaths Matter:](https://www.thenation.com/article/archive/black-deaths-matter/)** Historic black cemeteries have devolved into trash dumps and overgrown forests, while tidy Confederate memorials still draw public funding. By Seth Freed Wessler. October 15, 2015.
