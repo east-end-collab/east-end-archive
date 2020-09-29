@@ -3,7 +3,7 @@ layout: page
 title: Links
 permalink: /links
 ---
-** [East End Cemetery Map](https://dsl.richmond.edu/eastend/#loc=18/37.53651812109586/-77.387872338295)**
+**[East End Cemetery Map](https://dsl.richmond.edu/eastend/#loc=18/37.53651812109586/-77.387872338295)**
 
 Years in the making, this map pinpoints the locations of grave markers at East End using GIS technology and drone imagery. As of September 2020, nearly 3,250 markers have been mapped, with points indicating their precise positions in the cemetery. Points will continue to be added as markers are found. The map was created and is maintained through a partnership with the [Digital Scholarship Lab](http://dsl.richmond.edu/) and the [Spatial Analysis Lab](https://sal-urichmond.hub.arcgis.com/) at the University of Richmond.
 
