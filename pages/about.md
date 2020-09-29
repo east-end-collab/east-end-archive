@@ -17,7 +17,7 @@ For documents and photographs that are not in the public domain, the archive has
 
 - - -
 
-**Frequently Asked Questions**
+### **Frequently Asked Questions**
 
 **How do I use the Archive?** <br>
 There are several ways to interact with the Archive. You can perform a keyword search, sort by last name, year of birth and year of death, and filter by decades, locations, employers, fraternal & beneficial organizations, church affiliations, military service, and funeral home. If you would like to share your results you can by clicking the “Share Your Search” button next to the search box. This will copy a URL to your search results to the clipboard. You can then share it within an email, a tweet, or a post on other social media platforms. Below are links to a few search results to give you an idea of the kinds of materials we are presenting from the archive.
@@ -31,6 +31,6 @@ To view the various items the Archive might hold related to an individual, click
 **Is the Archive finished and how do I submit corrections?** <br>
 The archive will continue to grow and be improved.  The Collaboratory welcomes suggestions, corrections, and additions to the Archive data.  Please us the form at the bottom of this page to contact the collaboratory.
 
-**Contact Us or Submit Content**
+### **Contact Us or Submit Content**
 
 {% include contact.html %}
