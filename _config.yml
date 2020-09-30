@@ -1,10 +1,10 @@
 title: East End Cemetery Collaboratory
-baseurl: "" 
+baseurl: ""
 url: ""
 
 page_gen:
-  # - data: 'test_records'
-  - data: 'full_records'
+  - data: 'test_records'
+  # - data: 'full_records'
     template: 'person'
     name: 'SSID'
     dir: 'people'
@@ -20,6 +20,9 @@ collections:
   - links
   - pages
 
+assets:
+  sources:
+    - assets/fonts
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
