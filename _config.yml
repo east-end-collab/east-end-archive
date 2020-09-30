@@ -3,7 +3,7 @@ baseurl: ""
 url: ""
 
 page_gen:
-  # data: 'test_records'
+  # - data: 'test_records'
   - data: 'full_records'
     template: 'person'
     name: 'SSID'
