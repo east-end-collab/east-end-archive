@@ -23,12 +23,16 @@ A visually dynamic resource, this website situates the cemetery and the people b
 
 **[Black Deaths Matter:](https://www.thenation.com/article/archive/black-deaths-matter/)** By Seth Freed Wessler. October 15, 2015.
 
-**[For the Forgotten African American Dead:](https://www.nytimes.com/2017/01/07/opinion/sunday/for-the-forgotten-african-american-dead.html)** By Brian Palmer. January 07, 2017
+**[For the Forgotten African American Dead.](https://www.nytimes.com/2017/01/07/opinion/sunday/for-the-forgotten-african-american-dead.html)** By Brian Palmer. January 07, 2017
 
-**[Perpetual Neglect: The Preservation Crisis of African American Cemeteries:](https://placesjournal.org/article/perpetual-neglect-the-preservation-crisis-of-african-american-cemeteries/?cn-reloaded=1#:~:text=Black%20cemeteries%20are%20attached%20to,sustained%20resources%20or%20stable%20funding)** By Zach Mortice. May 2017.
+**[Perpetual Neglect: The Preservation Crisis of African American Cemeteries.](https://placesjournal.org/article/perpetual-neglect-the-preservation-crisis-of-african-american-cemeteries/?cn-reloaded=1#:~:text=Black%20cemeteries%20are%20attached%20to,sustained%20resources%20or%20stable%20funding)** By Zach Mortice. May 2017.
 
-**[Costs of the Confederacy:] (https://www.smithsonianmag.com/history/costs-confederacy-special-report-180970731/)** December 2018. Smithsonian Magazine: A special report by Smithsonian *and [the Investigative Fund at the Nation Institute](https://theinvestigativefund.org/)*
+**[Costs of the Confederacy.] (https://www.smithsonianmag.com/history/costs-confederacy-special-report-180970731/)** December 2018. Smithsonian Magazine: A special report by Smithsonian *and [the Investigative Fund at the Nation Institute](https://theinvestigativefund.org/)*
 
-**[Monumental Lies:](https://www.revealnews.org/episodes/monumental-lies/)**12/08/2018
+**[Monumental Lies.](https://www.revealnews.org/episodes/monumental-lies/)**  December 8, 2018
 
+**[The Geer Cemetery: A Lesson in Black History.](https://www.newsobserver.com/opinion/article225427335.html#storylink=cpy)** By William Sturkey. February 5, 2019
 
+**[The final resting place of Miami’s black pioneers: A forgotten cemetery in disrepair.](https://www.miamiherald.com/news/local/community/miami-dade/article215562635.html#storylink=cpy)** August 2, 2019
+
+**[How Decades of Racist Housing Policy Left Neighborhoods Sweltering.](https://www.nytimes.com/interactive/2020/08/24/climate/racism-redlining-cities-global-warming.html?smid=em-share)** September 6, 2020.
