@@ -27,4 +27,8 @@ A visually dynamic resource, this website situates the cemetery and the people b
 
 **[Perpetual Neglect: The Preservation Crisis of African American Cemeteries:](https://placesjournal.org/article/perpetual-neglect-the-preservation-crisis-of-african-american-cemeteries/?cn-reloaded=1#:~:text=Black%20cemeteries%20are%20attached%20to,sustained%20resources%20or%20stable%20funding)** By Zach Mortice. May 2017.
 
+**[Costs of the Confederacy:] (https://www.smithsonianmag.com/history/costs-confederacy-special-report-180970731/)** December 2018. Smithsonian Magazine: A special report by Smithsonian *and [the Investigative Fund at the Nation Institute](https://theinvestigativefund.org/)*
+
+
+
 
