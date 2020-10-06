@@ -29,6 +29,6 @@ A visually dynamic resource, this website situates the cemetery and the people b
 
 **[Costs of the Confederacy:] (https://www.smithsonianmag.com/history/costs-confederacy-special-report-180970731/)** December 2018. Smithsonian Magazine: A special report by Smithsonian *and [the Investigative Fund at the Nation Institute](https://theinvestigativefund.org/)*
 
-
+**[Monumental Lies:](https://www.revealnews.org/episodes/monumental-lies/)**12/08/2018
 
 
