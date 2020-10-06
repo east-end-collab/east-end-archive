@@ -21,7 +21,10 @@ A visually dynamic resource, this website situates the cemetery and the people b
 
 **Context and Related Articles** 
 
-**[Black Deaths Matter:](https://www.thenation.com/article/archive/black-deaths-matter/)** Historic black cemeteries have devolved into trash dumps and overgrown forests, while tidy Confederate memorials still draw public funding. By Seth Freed Wessler. October 15, 2015.
+**[Black Deaths Matter:](https://www.thenation.com/article/archive/black-deaths-matter/)** By Seth Freed Wessler. October 15, 2015.
 
-[For the Forgotten African American Dead:](https://www.nytimes.com/2017/01/07/opinion/sunday/for-the-forgotten-african-american-dead.html) Richmond, Va. — To get to East End Cemetery in Henrico County, Va., an abandoned African-American graveyard, my wife, Erin, and I drive through a predominantly black Richmond neighborhood — our neighborhood. Decades of neglect have turned this once beautiful burial ground into woodland. We’re part of a volunteer effort that has reclaimed about two and a half of East End’s 16 acres since it began in 2013. By Brian Palmer. January 07, 2017
+**[For the Forgotten African American Dead:](https://www.nytimes.com/2017/01/07/opinion/sunday/for-the-forgotten-african-american-dead.html)** By Brian Palmer. January 07, 2017
+
+**[Perpetual Neglect: The Preservation Crisis of African American Cemeteries:](https://placesjournal.org/article/perpetual-neglect-the-preservation-crisis-of-african-american-cemeteries/?cn-reloaded=1#:~:text=Black%20cemeteries%20are%20attached%20to,sustained%20resources%20or%20stable%20funding)** By Zach Mortice. May 2017.
+
 
