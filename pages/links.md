@@ -5,7 +5,7 @@ permalink: /links
 ---
 **[East End Cemetery Collaboratory](https://cemeterycollaboratory.org)**
 
-Main website for the East End Cemetery Collaboratory, this site brings together the various projects members of the collaboratory contribute including maps, 3D grave marker scans, histories, and this archive.
+Main website for the East End Cemetery Collaboratory, this site brings together the various projects members of the collaboratory contribute including maps, 3D grave marker scans, histories, and archives including this one.
 
 **[East End Cemetery Map](https://dsl.richmond.edu/eastend/#loc=18/37.53651812109586/-77.387872338295)**
 
