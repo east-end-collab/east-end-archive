@@ -3,6 +3,10 @@ layout: page
 title: Links
 permalink: /links
 ---
+**[East End Cemetery Collaboratory](https://cemeterycollaboratory.org)**
+
+Main website for the East End Cemetery Collaboratory, this site brings together the various projects members of the collaboratory contribute including maps, 3D grave marker scans, histories, and this archive.
+
 **[East End Cemetery Map](https://dsl.richmond.edu/eastend/#loc=18/37.53651812109586/-77.387872338295)**
 
 Years in the making, this map pinpoints the locations of grave markers at East End using GIS technology and drone imagery. As of September 2020, nearly 3,250 markers have been mapped, with points indicating their precise positions in the cemetery. Points will continue to be added as markers are found. The map was created and is maintained through a partnership with the [Digital Scholarship Lab](http://dsl.richmond.edu/) and the [Spatial Analysis Lab](https://sal-urichmond.hub.arcgis.com/) at the University of Richmond.
@@ -27,7 +31,7 @@ A visually dynamic resource, this website situates the cemetery and the people b
 
 **[Perpetual Neglect: The Preservation Crisis of African American Cemeteries.](https://placesjournal.org/article/perpetual-neglect-the-preservation-crisis-of-african-american-cemeteries/?cn-reloaded=1#:~:text=Black%20cemeteries%20are%20attached%20to,sustained%20resources%20or%20stable%20funding)** By Zach Mortice. May 2017.
 
-**[Costs of the Confederacy.] (https://www.smithsonianmag.com/history/costs-confederacy-special-report-180970731/)** December 2018. Smithsonian Magazine: A special report by Smithsonian *and [the Investigative Fund at the Nation Institute](https://theinvestigativefund.org/)*
+**[Costs of the Confederacy.](https://www.smithsonianmag.com/history/costs-confederacy-special-report-180970731/)** December 2018. Smithsonian Magazine: A special report by Smithsonian *and [the Investigative Fund at the Nation Institute](https://theinvestigativefund.org/)*
 
 **[Monumental Lies.](https://www.revealnews.org/episodes/monumental-lies/)**  December 8, 2018
 
