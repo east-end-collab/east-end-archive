@@ -3,8 +3,8 @@ layout: page
 title: East End Cemetery Archive
 permalink: /
 ---
-##### Welcome to the **East End Cemetery Archive**, a searchable repository of records and research related to East End Cemetery, a historic African American burial ground in Henrico County and the city of Richmond, Virginia. #####
+##### Welcome to the **East End Cemetery Archive**, a searchable repository of records and research related to East End Cemetery and other African American burial grouns in the City of RIchmond and Henrico County, Virginia.  
 
-#### [**SEARCH THE ARCHIVE >>**](/search)
+#### **[SEARCH THE ARCHIVE >>](/search)**
 
 ![East End Cemetery. Photograph: Brian Palmer](/images/uploads/banner.jpg)
