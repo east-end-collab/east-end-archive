@@ -18,7 +18,7 @@ const ResultCard = (props) => {
 
     return (
         <div className="row rounded-lg mb-4 shadow-lg p-4 result-card">
-            <a href={`${protocol}//${host}/people/${SSID}`} className="card-link"></a>
+            <a href={`${protocol}//${host}/east-end-collaboratory-github-pages/people/${SSID}`} className="card-link"></a>
             {Media_URL &&
             <div className='portrait-container'>
                 <img src={Media_URL}/>
