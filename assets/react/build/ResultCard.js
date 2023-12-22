@@ -23,7 +23,7 @@ var ResultCard = function ResultCard(props) {
         return field === '' || field.toLowerCase() === 'unknown';
     };
     var protocol = window.location.protocol;
-    var host = window.location.host;
+    var host = window.location.host + '/east-end-collaboratory-github-pages/people/';
     var firstName = isUnknown(First_Name) ? React.createElement(Unknown, null) : First_Name;
     var lastName = isUnknown(Last_Name) ? React.createElement(Unknown, null) : Last_Name;
     var birthYear = isUnknown(Birth_Year) ? React.createElement(Unknown, null) : Birth_Year;
@@ -32,7 +32,7 @@ var ResultCard = function ResultCard(props) {
     return React.createElement(
         'div',
         { className: 'row rounded-lg mb-4 shadow-lg p-4 result-card' },
-        React.createElement('a', { href: protocol + '//' + host + '/people/' + SSID, className: 'card-link' }),
+        React.createElement('a', { href: protocol + '//' + host + SSID, className: 'card-link' }),
         Media_URL && React.createElement(
             'div',
             { className: 'portrait-container' },
