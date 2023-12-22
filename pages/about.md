@@ -28,9 +28,6 @@ There are several ways to interact with the Archive. You can perform a keyword s
 
 To view the various items the Archive might hold related to an individual, click on their “card”. If there are documents such as death certificates, birth certificates, newspaper articles, advertisements, photographs, etc. they will be listed on this page with metadata and transcriptions. Not every entry is complete, and data will continue to be improved each semester. 
 
-**Is the Archive finished and how do I submit corrections?** <br>
-The archive will continue to grow and be improved.  The Collaboratory welcomes suggestions, corrections, and additions to the Archive data.  Please us the form at the bottom of this page to contact the collaboratory.
+### Is the Archive finished and how do I submit corrections?
 
-### **Contact Us or Submit Content**
-
-{% include contact.html %}
+The archive will continue to grow and be improved. The Collaboratory welcomes suggestions, corrections, and additions to the Archive data. Please use the form [here](https://cemeterycollaboratory.org/contact/){:target="\_blank"} to contact us.

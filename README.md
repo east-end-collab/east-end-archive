@@ -8,7 +8,7 @@
 6. Drag and drop or select the `allrecords.csv` from your file explorer to upload it
 7. Add an optional commit message under where it says **Commit changes**
 8. Click the **Commit changes** button
-9. Wait for the build to finish. Should not take longer than 10-15 minutes. You can check on the status of the build on [Netlify](https://app.netlify.com/)
+9. Wait for the build to finish. Should not take longer than 10-15 minutes. You can check on the status of the build on Github
 
 ## Notes about modifying columns in JSTOR or the exported csv file
 
@@ -99,16 +99,10 @@ You will need to install [Jekyll](https://jekyllrb.com/docs/installation/) and [
     to compile the jsx
 
 ## Generating json files from csv
-- `./generateRecords.js` is run just before build on Netlify (per the `./netlify.toml` file)
+- `./generateRecords.js` is run just before build on Github
 - You can run it manually in dev by running `node generateRecords.js`
 - This generates `._data/all_records.json`, `._data/full_records.json`, and `._data/test_records.json`.
 
    - `full_records.json` represents records that are considered to be the full biographical record and is used to generate the search index.
    - `full_records.json` is also used to generate each person page (unless `./_config.yml` is changed to point to `test-records.json`)
    - `all_records.json` is used within each person page to show all other records associated with that person.
-
-## If Netlify build Fails to build all 3k+ people pages
-1. [Install netlify CLI](https://docs.netlify.com/cli/get-started/#installation)
-2. `jekyll build` locally
-3. `netlify deploy`, which will push all contents of the `_site` folder to the server, on a draft deploy
-4. If that looks good, use `netlify deploy --prod`, which should deploy to the live site.

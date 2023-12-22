@@ -15,17 +15,6 @@
 
     {%- include footer.html -%}
 
-   <script>
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", user => {
-        if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/";
-          });
-        }
-      });
-    }
-  </script>
   <script src="https://unpkg.com/itemsjs@2.1.24/dist/index.umd.js"></script>
   <script>
     var fullBioRecords = {{ site.data.full_records | jsonify }};
