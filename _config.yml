@@ -1,6 +1,6 @@
 title: East End Cemetery Collaboratory
-baseurl: ""
-url: "https://east-end-collab.github.io/east-end-collaboratory-github-pages"
+baseurl: ''
+url: ''
 
 page_gen:
   # - data: 'test_records'
@@ -8,7 +8,6 @@ page_gen:
     template: 'person'
     name: 'SSID'
     dir: 'people'
-
 
 # Build settings
 theme: minima
