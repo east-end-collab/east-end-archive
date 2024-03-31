@@ -1,0 +1,37 @@
+<p>
+  {{record.Prefix}} {{record.First_Name}} {{record.Middle_Name}}
+  {{record.Nick_Name}} {{record.Maiden_Name}} {{record.Last_Name}}
+  {{record.Suffix}}
+</p>
+
+<h1>Personal Data</h1>
+<p>
+  Birth Date: {{record.Birth_Month}}/{{record.Birth_Day}}/{{record.Birth_Year}}
+</p>
+<p>Spouse:</p>
+<p>
+  {{record.Spouse_Name}} {{record.Marriage_date}} {{record.Marriage_location}}
+</p>
+<p>Place of Birth: {{record.Birth_Location}}</p>
+
+<h1>Relationships</h1>
+<p>
+  Mother: {{record.Mother_FirstMiddle_name}} {{record.Mother_Last_Name}}, Born
+  In {{record.Mother_Birthplace}}
+</p>
+<p>
+  Father: {{record.Father_FirstMiddle_name}} {{record.Father_Last_Name}}, Born
+  In {{record.Father_Birthplace}}
+</p>
+
+<h1>Address</h1>
+<p>{{record.Address}}</p>
+
+<h1>Occupation</h1>
+<p>{{record.Occupation}}</p>
+
+<h1>Employer</h1>
+<p>{{record.Employer}}</p>
+
+<h1>Notes and Clarifications:</h1>
+<p>{{record.Notes_and_Clarifications}}</p>
