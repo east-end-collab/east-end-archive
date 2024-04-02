@@ -22,25 +22,27 @@
   <p>Age at Death: {{ record.Age_death }}</p>
 {% endif %}
 
-<h1>Relationships</h1>
-{% if record.Mother_FirstMiddle_name != '' and record.Mother_Last_Name != '' %}
-  <p>
-    Mother: {{ record.Mother_FirstMiddle_name }} {{ record.Mother_Last_Name }}
-    {% if record.Mother_Birthplace != '' %}
-      , Born In
-      {{ record.Mother_Birthplace }}
-    {% endif %}
-  </p>
-{% endif %}
+{% if record.Mother_Last_Name != '' or record.Father_Last_Name != '' %}
+  <h1>Relationships</h1>
+  {% if record.Mother_Last_Name != '' %}
+    <p>
+      Mother: {{ record.Mother_FirstMiddle_name }} {{ record.Mother_Last_Name }}
+      {% if record.Mother_Birthplace != '' %}
+        , Born In
+        {{ record.Mother_Birthplace }}
+      {% endif %}
+    </p>
+  {% endif %}
 
-{% if record.Father_FirstMiddle_name != '' and record.Father_Last_Name != '' %}
-  <p>
-    Father: {{ record.Father_FirstMiddle_name }} {{ record.Father_Last_Name }}
-    {% if record.Father_Birthplace != '' %}
-      , Born In
-      {{ record.Father_Birthplace }}
-    {% endif %}
-  </p>
+  {% if record.Father_Last_Name != '' %}
+    <p>
+      Father: {{ record.Father_FirstMiddle_name }} {{ record.Father_Last_Name }}
+      {% if record.Father_Birthplace != '' %}
+        , Born In
+        {{ record.Father_Birthplace }}
+      {% endif %}
+    </p>
+  {% endif %}
 {% endif %}
 
 {% if record.Spouse_Name != '' %}

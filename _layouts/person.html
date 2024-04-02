@@ -25,25 +25,27 @@ layout: default
   <p>Age at Death: {{ page.Age_death }}</p>
 {% endif %}
 
-<h1>Relationships</h1>
-{% if page.Mother_FirstMiddle_name != '' and page.Mother_Last_Name != '' %}
-  <p>
-    Mother: {{ page.Mother_FirstMiddle_name }} {{ page.Mother_Last_Name }}
-    {% if page.Mother_Birthplace != '' %}
-      , Born In
-      {{ page.Mother_Birthplace }}
-    {% endif %}
-  </p>
-{% endif %}
+{% if page.Mother_Last_Name != '' or page.Father_Last_Name != '' %}
+  <h1>Relationships</h1>
+  {% if page.Mother_Last_Name != '' %}
+    <p>
+      Mother: {{ page.Mother_FirstMiddle_name }} {{ page.Mother_Last_Name }}
+      {% if page.Mother_Birthplace != '' %}
+        , Born In
+        {{ page.Mother_Birthplace }}
+      {% endif %}
+    </p>
+  {% endif %}
 
-{% if page.Father_FirstMiddle_name != '' and page.Father_Last_Name != '' %}
-  <p>
-    Father: {{ page.Father_FirstMiddle_name }} {{ page.Father_Last_Name }}
-    {% if page.Father_Birthplace != '' %}
-      , Born In
-      {{ page.Father_Birthplace }}
-    {% endif %}
-  </p>
+  {% if page.Father_Last_Name != '' %}
+    <p>
+      Father: {{ page.Father_FirstMiddle_name }} {{ page.Father_Last_Name }}
+      {% if page.Father_Birthplace != '' %}
+        , Born In
+        {{ page.Father_Birthplace }}
+      {% endif %}
+    </p>
+  {% endif %}
 {% endif %}
 
 {% if page.Spouse_Name != '' %}
