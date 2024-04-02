@@ -1,3 +1,6 @@
+img {
+    margin-bottom: 20px;
+}
 .person{
     h2{
         margin: $spacing-unit 0;
@@ -7,7 +10,6 @@
         max-height: 400px;
         border: 1px solid white;
         border-radius: .8rem;
-        padding-bottom: 1px;
     }
     .fact-container{
         display: flex;

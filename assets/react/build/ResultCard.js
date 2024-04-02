@@ -23,6 +23,7 @@ var ResultCard = function ResultCard(props) {
         return field === '' || field.toLowerCase() === 'unknown';
     };
     var protocol = window.location.protocol;
+    // CHANGE FOR GITHUB PAGES
     var host = window.location.host + "/east-end-staging";
     var firstName = isUnknown(First_Name) ? React.createElement(Unknown, null) : First_Name;
     var lastName = isUnknown(Last_Name) ? React.createElement(Unknown, null) : Last_Name;

@@ -1,9 +1,3 @@
-<h1>
-  {{ record.Prefix }} {{ record.First_Name }} {{ record.Middle_Name }} {{ record.Nick_Name }}
-  {{ record.Maiden_Name }} {{ record.Last_Name }} {{ record.Suffix }}
-</h1>
-
-<h1>Personal Data</h1>
 {% if record.Birth_Date != "Unknown" %}
   <p>Birth Date: {{ record.Birth_Date }}</p>
 {% endif %}
@@ -23,7 +17,7 @@
 {% endif %}
 
 {% if record.Mother_Last_Name != '' or record.Father_Last_Name != '' %}
-  <h1>Relationships</h1>
+  <h3>Relationships</h3>
   {% if record.Mother_Last_Name != '' %}
     <p>
       Mother: {{ record.Mother_FirstMiddle_name }} {{ record.Mother_Last_Name }}
@@ -65,22 +59,22 @@
 {% endif %}
 
 {% if record.Address != '' %}
-  <h1>Address</h1>
+  <h3>Address</h3>
   <p>{{ record.Address }}</p>
 {% endif %}
 
 {% if record.Occupation != '' %}
-  <h1>Occupation</h1>
+  <h3>Occupation</h3>
   <p>{{ record.Occupation }}</p>
 {% endif %}
 
 {% if record.Employer != '' %}
-  <h1>Employer</h1>
+  <h3>Employer</h3>
   <p>{{ record.Employer }}</p>
 {% endif %}
 
 {% if record.Fraternal_and_Beneficial_Organizations != '' or record.Church_affiliation != '' or record.School != '' %}
-  <h1>Community Affiliations</h1>
+  <h3>Community Affiliations</h3>
   {% if record.Fraternal_and_Beneficial_Organizations != '' %}
     <p>
       Fraternal and Beneficial Organizations:
@@ -96,24 +90,24 @@
 {% endif %}
 
 {% if record.Military_Service != '' %}
-  <h1>Military Service</h1>
+  <h3>Military Service</h3>
   <p>{{ record.Military_Service }}</p>
   <p>{{ record.Service_Information }}</p>
 {% endif %}
 
 {% if record.Plantation != '' %}
-  <h1>Enslavement</h1>
+  <h3>Enslavement</h3>
   <p>Plantation: {{ record.Plantation }}</p>
 {% endif %}
 
 {% if record.Death_Primary != '' %}
-  <h1>Verbatim Cause of Death</h1>
+  <h3>Verbatim Cause of Death</h3>
   <p>{{record.Death_Primary}}</p>
   <p>{{record.Death_Secondary}}</p>
 {% endif %}
 
 {% if record.Funeral_Home != '' or record.Funeral_Home_Address != '' or record.Burial_Date != "Unknown" %}
-  <h1>Burial Information</h1>
+  <h3>Burial Information</h3>
   <p>Funeral Home: {{ record.Funeral_Home }}</p>
   <p>Funeral Home Adress: {{ record.Funeral_Home_Address }}</p>
   <p>
@@ -121,53 +115,53 @@
 {% endif %}
 
 {% if recored.Document_Type == "Grave Marker Description" and record.Notes != '' %}
-  <h1>Notes</h1>
+  <h3>Notes</h3>
   <p>{{record.Notes}}</p>
 {% endif %}
 
 {% if record.Date_of_Publication != '' %}
-<h1>Date</h1>
+<h3>Date</h3>
 <p>{{record.Date_of_Publication}}</p>
 {% endif %}
 
 {% if record.Transcription_of_Printed_Material != '' %}
-<h1>Transcription of Printed Material</h1>
+<h3>Transcription of Printed Material</h3>
 <p>{{record.Transcription_of_Printed_Material}}</p>
 {% endif %}
 
 {% if record.Type != '' %}
-<h1>Type</h1>
+<h3>Type</h3>
 <p>{{record.Type}}</p>
 {% endif %}
 
 {% if record.Other_Description != '' %}
-<h1>Other Description</h1>
+<h3>Other Description</h3>
 <p>{{record.Other_Description}}</p>
 {% endif %}
 
 {% if record.Materials != '' %}
-<h1>Materials</h1>
+<h3>Materials</h3>
 <p>{{record.Materials}}</p>
 {% endif %}
 
 {% if record.Decoration != '' %}
-<h1>Decoration</h1>
+<h3>Decoration</h3>
 <p>{{record.Decoration}}</p>
 {% endif %}
 
 {% if record.Marker_Transcription != '' %}
-<h1>Marker Transcription</h1>
+<h3>Marker Transcription</h3>
 <p>{{record.Marker_Transcription}}</p>
 {% endif %}
 
 
 {% if record.Notes_and_Clarifications != '' %}
-  <h1>Notes and Clarifications:</h1>
+  <h3>Notes and Clarifications:</h3>
   <p>{{ record.Notes_and_Clarifications }}</p>
 {% endif %}
 
 {% if record.Other_Documents_to_Consult_for_Research != '' %}
-  <h1>Other Documents to Consult for Research:</h1>
+  <h3>Other Documents to Consult for Research:</h3>
   <p>{{ record.Other_Documents_to_Consult_for_Research }}</p>
 {% endif %}
 

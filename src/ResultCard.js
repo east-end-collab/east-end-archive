@@ -10,7 +10,8 @@ const ResultCard = (props) => {
     const Unknown = () => <span className="sub-text">[unknown]</span>
     const isUnknown = (field) => (field === '' || field.toLowerCase() === 'unknown')
     const protocol = window.location.protocol;
-    const host = window.location.host;
+    // CHANGE FOR GITHUB PAGES
+    var host = window.location.host + "/east-end-staging";
     let firstName = isUnknown(First_Name) ? <Unknown /> : First_Name;
     let lastName = isUnknown(Last_Name) ? <Unknown /> : Last_Name;
     let birthYear = isUnknown(Birth_Year) ? <Unknown /> : Birth_Year;
