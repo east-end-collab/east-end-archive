@@ -1,41 +1,32 @@
 {% if record.Birth_Date != "Unknown" %}
-  <p>Birth Date: {{ record.Birth_Date }}</p>
+  <p><span class="key">Date of birth:</span> {{ record.Birth_Date }}</p>
 {% endif %}
 
 {% if record.Birth_Location != '' %}
-  <p>Place of Birth: {{ record.Birth_Location }}</p>
+  <p><span class="key">Place of birth:</span> {{ record.Birth_Location }}</p>
 {% endif %}
 
-<p>Death Date: {{ record.Death_Date }}</p>
+<p><span class="key">Date of death:</span> {{ record.Death_Date }}</p>
 
 {% if record.Death_Location != '' %}
-  <p>Place of Death: {{ record.Death_Location }}</p>
+  <p><span class="key">Place of death:</span> {{ record.Death_Location }}</p>
 {% endif %}
-
 {% if record.Age_death != '' %}
-  <p>Age at Death: {{ record.Age_death }}</p>
+  <p><span class="key">Age at death:</span> {{ record.Age_death }}</p>
 {% endif %}
 
 {% if record.Mother_Last_Name != '' or record.Father_Last_Name != '' %}
-  <h3>Relationships</h3>
-  {% if record.Mother_Last_Name != '' %}
-    <p>
-      Mother: {{ record.Mother_FirstMiddle_name }} {{ record.Mother_Last_Name }}
-      {% if record.Mother_Birthplace != '' %}
-        , Born In
-        {{ record.Mother_Birthplace }}
-      {% endif %}
-    </p>
+  <h3>Relationships:</h3>
+  {% if record.Mother_Last_Name != '' and record.Mother_Birthplace != ''%}
+    <p><span class="key">Mother:</span> {{ record.Mother_FirstMiddle_name }} {{ record.Mother_Last_Name }}, born in {{ record.Mother_Birthplace }}</p>
+  {% elsif record.Mother_Last_Name != ''%}
+    <p><span class="key">Mother:</span> {{ record.Mother_FirstMiddle_name }} {{ record.Mother_Last_Name }}</p>
   {% endif %}
 
-  {% if record.Father_Last_Name != '' %}
-    <p>
-      Father: {{ record.Father_FirstMiddle_name }} {{ record.Father_Last_Name }}
-      {% if record.Father_Birthplace != '' %}
-        , Born In
-        {{ record.Father_Birthplace }}
-      {% endif %}
-    </p>
+  {% if record.Father_Last_Name != '' and record.Father_Birthplace != ''%}
+    <p><span class="key">Father:</span> {{ record.Father_FirstMiddle_Name }} {{ record.Father_Last_Name }}, born in {{ record.Father_Birthplace }}</p>
+  {% elsif record.Father_Last_Name != ''%}
+    <p><span class="key">Father:</span> {{ record.Father_FirstMiddle_Name }} {{ record.Father_Last_Name }}</p>
   {% endif %}
 {% endif %}
 
@@ -54,114 +45,102 @@
 {% endif %}
 
 {% if record.Other_family_Siblings_Children_etc != '' %}
-  <p>Other Relatives:</p>
+  <p><span class="key">Other relatives:</span></p>
   <p>{{ record.Other_family_Siblings_Children_etc }}</p>
 {% endif %}
 
 {% if record.Address != '' %}
-  <h3>Address</h3>
+  <h3>Address:</h3>
   <p>{{ record.Address }}</p>
 {% endif %}
 
 {% if record.Occupation != '' %}
-  <h3>Occupation</h3>
+  <h3>Occupation:</h3>
   <p>{{ record.Occupation }}</p>
 {% endif %}
 
 {% if record.Employer != '' %}
-  <h3>Employer</h3>
+  <h3>Employer:</h3>
   <p>{{ record.Employer }}</p>
 {% endif %}
 
 {% if record.Fraternal_and_Beneficial_Organizations != '' or record.Church_affiliation != '' or record.School != '' %}
-  <h3>Community Affiliations</h3>
+  <h3>Community Affiliations:</h3>
   {% if record.Fraternal_and_Beneficial_Organizations != '' %}
     <p>
-      Fraternal and Beneficial Organizations:
+      <span class="key">Fraternal and beneficial organizations:</span>
       {{ record.Fraternal_and_Beneficial_Organizations }}
     </p>
   {% endif %}
   {% if record.Church_affiliation != '' %}
-    <p>Church Affiliation: {{ record.Church_affiliation }}</p>
+    <p><span class="key">Church affiliation:</span> {{ record.Church_affiliation }}</p>
   {% endif %}
   {% if record.School != '' %}
-    <p>School: {{ record.School }}</p>
+    <p><span class="key">School:</span> {{ record.School }}</p>
   {% endif %}
 {% endif %}
 
 {% if record.Military_Service != '' %}
-  <h3>Military Service</h3>
+  <h3>Military Service:</h3>
   <p>{{ record.Military_Service }}</p>
   <p>{{ record.Service_Information }}</p>
 {% endif %}
 
 {% if record.Plantation != '' %}
-  <h3>Enslavement</h3>
-  <p>Plantation: {{ record.Plantation }}</p>
+  <h3>Enslavement:</h3>
+  <p><span class="key">Plantation:</span> {{ record.Plantation }}</p>
 {% endif %}
 
-{% if record.Death_Primary != '' %}
-  <h3>Verbatim Cause of Death</h3>
-  <p>{{record.Death_Primary}}</p>
-  <p>{{record.Death_Secondary}}</p>
-{% endif %}
-
-{% if record.Funeral_Home != '' or record.Funeral_Home_Address != '' or record.Burial_Date != "Unknown" %}
-  <h3>Burial Information</h3>
-  <p>Funeral Home: {{ record.Funeral_Home }}</p>
-  <p>Funeral Home Adress: {{ record.Funeral_Home_Address }}</p>
+{% if record.Funeral_Home != '' or record.Burial_Date != "Unknown" %}
+  <h3>Burial Information:</h3>
+  <p><span class="key">Funeral home:</span> {{ record.Funeral_Home }}</p>
   <p>
-    Burial Date: {{ record.Burial_Date }}</p>
-{% endif %}
-
-{% if recored.Document_Type == "Grave Marker Description" and record.Notes != '' %}
-  <h3>Notes</h3>
-  <p>{{record.Notes}}</p>
+    <span class="key">Burial date:</span> {{ record.Burial_Date }}</p>
 {% endif %}
 
 {% if record.Date_of_Publication != '' %}
-<h3>Date</h3>
+<h3>Date:</h3>
 <p>{{record.Date_of_Publication}}</p>
 {% endif %}
 
 {% if record.Transcription_of_Printed_Material != '' %}
-<h3>Transcription of Printed Material</h3>
+<h3>Transcription of Printed Material:</h3>
 <p>{{record.Transcription_of_Printed_Material}}</p>
 {% endif %}
 
 {% if record.Type != '' %}
-<h3>Type</h3>
+<h3>Type:</h3>
 <p>{{record.Type}}</p>
 {% endif %}
 
 {% if record.Other_Description != '' %}
-<h3>Other Description</h3>
+<h3>Other Description:</h3>
 <p>{{record.Other_Description}}</p>
 {% endif %}
 
 {% if record.Materials != '' %}
-<h3>Materials</h3>
+<h3>Materials:</h3>
 <p>{{record.Materials}}</p>
 {% endif %}
 
 {% if record.Decoration != '' %}
-<h3>Decoration</h3>
+<h3>Decoration:</h3>
 <p>{{record.Decoration}}</p>
 {% endif %}
 
 {% if record.Marker_Transcription != '' %}
-<h3>Marker Transcription</h3>
+<h3>Marker Transcription:</h3>
 <p>{{record.Marker_Transcription}}</p>
 {% endif %}
 
 
 {% if record.Notes_and_Clarifications != '' %}
-  <h3>Notes and Clarifications:</h3>
+  <h3><span class="key">Notes and clarifications:</span>:</h3>
   <p>{{ record.Notes_and_Clarifications }}</p>
 {% endif %}
 
 {% if record.Other_Documents_to_Consult_for_Research != '' %}
-  <h3>Other Documents to Consult for Research:</h3>
+  <h3><span class="key">Other documents to consult for research:</span>:</h3>
   <p>{{ record.Other_Documents_to_Consult_for_Research }}</p>
 {% endif %}
 

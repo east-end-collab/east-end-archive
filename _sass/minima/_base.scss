@@ -14,7 +14,7 @@ dl, dd, ol, ul, figure {
  * Basic styling
  */
 body {
-  font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
+  font: $base-font-family;
   color: $text-color;
   background-color: $background-color;
   -webkit-text-size-adjust: 100%;
@@ -254,4 +254,22 @@ table {
   // td {
   //   border: 1px solid $grey-color-light;
   // }
+}
+
+h1{
+  font-size: 40px;
+  font-weight: bolder;
+}
+
+h3{
+  font-size: 25px;
+  font-weight: bolder;
+}
+
+.page-content a{
+  text-decoration: underline;
+}
+
+.key{
+  font-weight: 800;
 }

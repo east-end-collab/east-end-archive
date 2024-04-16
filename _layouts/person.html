@@ -11,54 +11,46 @@ layout: default
 </h1>
 
   {% if page.FindGraveURL != '' and page.Map_URL != '' %}
-    <p><a href="{{page.FindGraveURL}}">Find A Grave URL</a> | <a href="{{page.Map_URL}}">MAP URL</a></p>
+    <p><a href="{{page.FindGraveURL}}">Find a Grave</a> | <a href="{{page.Map_URL}}">Map</a></p>
   {% elsif page.FindGraveURL != '' %}
-    <p><a href="{{page.FindGraveURL}}" target="_blank" rel="noopener noreferrer">Find A Grave URL</a></p>
+    <p><a href="{{page.FindGraveURL}}" target="_blank" rel="noopener noreferrer">Find a Grave</a></p>
   {% elsif page.Map_URL != '' %}
-    <p><a href="{{page.Map_URL}}" target="_blank" rel="noopener noreferrer">MAP URL</a></p>
+    <p><a href="{{page.Map_URL}}" target="_blank" rel="noopener noreferrer">Map</a></p>
   {% endif %}
 
-<p>Birth Date: {{ page.Birth_Date }}</p>
+<p><span class="key">Date of birth:</span> {{ page.Birth_Date }}</p>
 
 {% if page.Birth_Location != '' %}
-  <p>Place of Birth: {{ page.Birth_Location }}</p>
+  <p><span class="key">Place of birth:</span> {{ page.Birth_Location }}</p>
 {% endif %}
 
-<p>Death Date: {{ page.Death_Date }}</p>
+<p><span class="key">Date of death:</span> {{ page.Death_Date }}</p>
 
 {% if page.Death_Location != '' %}
-  <p>Place of Death: {{ page.Death_Location }}</p>
+  <p><span class="key">Place of death:</span> {{ page.Death_Location }}</p>
 {% endif %}
 
 {% if page.Age_death != '' %}
-  <p>Age at Death: {{ page.Age_death }}</p>
+  <p><span class="key">Age at death:</span> {{ page.Age_death }}</p>
 {% endif %}
 
 {% if page.Mother_Last_Name != '' or page.Father_Last_Name != '' %}
-  <h3>Relationships</h3>
-  {% if page.Mother_Last_Name != '' %}
-    <p>
-      Mother: {{ page.Mother_FirstMiddle_name }} {{ page.Mother_Last_Name }}
-      {% if page.Mother_Birthplace != '' %}
-        , Born In
-        {{ page.Mother_Birthplace }}
-      {% endif %}
-    </p>
+  <h3>Relationships:</h3>
+  {% if page.Mother_Last_Name != '' and page.Mother_Birthplace != ''%}
+    <p><span class="key">Mother:</span> {{ page.Mother_FirstMiddle_name }} {{ page.Mother_Last_Name }}, born in {{ page.Mother_Birthplace }}</p>
+  {% elsif page.Mother_Last_Name != ''%}
+    <p><span class="key">Mother:</span> {{ page.Mother_FirstMiddle_name }} {{ page.Mother_Last_Name }}</p>
   {% endif %}
 
-  {% if page.Father_Last_Name != '' %}
-    <p>
-      Father: {{ page.Father_FirstMiddle_name }} {{ page.Father_Last_Name }}
-      {% if page.Father_Birthplace != '' %}
-        , Born In
-        {{ page.Father_Birthplace }}
-      {% endif %}
-    </p>
+  {% if page.Father_Last_Name != '' and page.Father_Birthplace != ''%}
+    <p><span class="key">Father:</span> {{ page.Father_FirstMiddle_Name }} {{ page.Father_Last_Name }}, born in {{ page.Father_Birthplace }}</p>
+  {% elsif page.Father_Last_Name != ''%}
+    <p><span class="key">Father:</span> {{ page.Father_FirstMiddle_Name }} {{ page.Father_Last_Name }}</p>
   {% endif %}
 {% endif %}
 
 {% if page.Spouse_Name != '' %}
-  <p>Spouses:</p>
+  <p><span class="key">Spouses:</span></p>
   <p>{{ page.Spouse_Name }} {{ page.Marriage_date }} {{ page.Marriage_location }}</p>
   {% if page.Spouse_2 != '' %}
     <p>{{ page.Spouse_2 }}</p>
@@ -72,58 +64,57 @@ layout: default
 {% endif %}
 
 {% if page.Other_family_Siblings_Children_etc != '' %}
-  <p>Other Relatives:</p>
+  <p><span class="key">Other relatives:</span></p>
   <p>{{ page.Other_family_Siblings_Children_etc }}</p>
 {% endif %}
 
 {% if page.Address != '' %}
-  <h3>Address</h3>
+  <h3>Address:</h3>
   <p>{{ page.Address }}</p>
 {% endif %}
 
 {% if page.Occupation != '' %}
-  <h3>Occupation</h3>
+  <h3>Occupation:</h3>
   <p>{{ page.Occupation }}</p>
 {% endif %}
 
 {% if page.Employer != '' %}
-  <h3>Employer</h3>
+  <h3>Employer:</h3>
   <p>{{ page.Employer }}</p>
 {% endif %}
 
 {% if page.Fraternal_and_Beneficial_Organizations != '' or page.Church_affiliation != '' or page.School != '' %}
-  <h3>Community Affiliations</h3>
+  <h3>Community Affiliations:</h3>
   {% if page.Fraternal_and_Beneficial_Organizations != '' %}
     <p>
-      Fraternal and Beneficial Organizations:
+      <span class="key">Fraternal and beneficial organizations:</span>
       {{ page.Fraternal_and_Beneficial_Organizations }}
     </p>
   {% endif %}
   {% if page.Church_affiliation != '' %}
-    <p>Church Affiliation: {{ page.Church_affiliation }}</p>
+    <p><span class="key">Church Affiliation:</span> {{ page.Church_affiliation }}</p>
   {% endif %}
   {% if page.School != '' %}
-    <p>School: {{ page.School }}</p>
+    <p><span class="key">School:</span> {{ page.School }}</p>
   {% endif %}
 {% endif %}
 
 {% if page.Military_Service != '' %}
-  <h3>Military Service</h3>
+  <h3>Military Service:</h3>
   <p>{{ page.Military_Service }}</p>
   <p>{{ page.Service_Information }}</p>
 {% endif %}
 
 {% if page.Plantation != '' %}
-  <h3>Enslavement</h3>
-  <p>Plantation: {{ page.Plantation }}</p>
+  <h3>Enslavement:</h3>
+  <p><span class="key">Plantation:</span> {{ page.Plantation }}</p>
 {% endif %}
 
-{% if page.Funeral_Home != '' or page.Funeral_Home_Address != '' or page.Burial_Year != '' %}
-  <h3>Burial Information</h3>
-  <p>Funeral Home: {{ page.Funeral_Home }}</p>
-  <p>Funeral Home Adress: {{ page.Funeral_Home_Address }}</p>
+{% if page.Funeral_Home != '' or page.Burial_Year != '' %}
+  <h3>Burial Information:</h3>
+  <p><span class="key">Funeral home:</span> {{ page.Funeral_Home }}</p>
   <p>
-    Burial Date: {{ page.Burial_Date }}</p>
+    <span class="key">Date of burial:</span> {{ page.Burial_Date }}</p>
 {% endif %}
 
 {% if page.Notes_and_Clarifications != '' %}
@@ -132,13 +123,15 @@ layout: default
 {% endif %}
 
 {% if page.Other_Documents_to_Consult_for_Research != '' %}
-  <h3>Other Documents to Consult for Research:</h3>
+  <h3><span class="key">Other documents to consult for research:</span></h3>
   <p>{{ page.Other_Documents_to_Consult_for_Research }}</p>
 {% endif %}
 
-<h3>Associated Documents</h3>
+<br>
+
+<h1>Associated Documents:</h1>
 {% for record in site.data.all_records %}
-  {% if record.FindGrave_ID == page.FindGrave_ID and record.Full_Biography_Record != 'TRUE' and record.Document_Type != '' %}
+  {% if record.FindGrave_ID == page.FindGrave_ID and record.Full_Biography_Record != 'TRUE' and record.Document_Type != '' and record.Document_Type != 'Grave Marker Description' %}
     <h3>{{ record.Document_Type }}</h3>
     {% if record.Media_URL != '' %}
       <img src="{{record.Media_URL}}" alt="{{record.Document_Type}}" />
