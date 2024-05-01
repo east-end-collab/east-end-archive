@@ -99,12 +99,12 @@ or record.Death_Location != '' or record.Age_death != ''  %}
   <p><span class="key">Plantation:</span> {{ record.Plantation }}</p>
 {% endif %}
 
-{% if record.Funeral_Home != '' or record.Burial_Date != 'Unknown' %}
+{% if record.Funeral_Home != '' or record.Burial_Date != '' %}
   <h3>Burial Information</h3>
   {% if record.Funeral_Home != '' %}
     <p><span class="key">Funeral home:</span> {{ record.Funeral_Home }}</p>
   {% endif %}
-  {% if record.Burial_Date != 'Unknown' %}
+  {% if record.Burial_Date != '' %}
     <p><span class="key">Date of burial:</span> {{ record.Burial_Date }}</p>
   {% endif %}
 {% endif %}
