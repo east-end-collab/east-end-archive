@@ -66,12 +66,12 @@ const monthNames = ["January", "February", "March", "April", "May", "June",
 function formatDate(day, month, year) {
     if (day && month && year) {
         month = monthNames[month]
-        return `${day} ${month} ${year}`
+        return `${month} ${day}, ${year}`
     } else if (month && year) {
         month = monthNames[month]
         return `${month} ${year}`
     } else if (year != '') {
         return year
     }
-    else return "Unknown"
+    else return ""
 }
