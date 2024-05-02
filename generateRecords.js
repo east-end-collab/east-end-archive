@@ -20,6 +20,11 @@ const readStream = fs.createReadStream(csvSource)
             record['Birth_Date'] = birthDate
             record['Death_Date'] = deathDate
             record['Burial_Date'] = burialDate
+            const getDecade = year => year ? `${year.slice(0, 3)}0s` : '[unknown]';
+            let deathDecade = getDecade(record.Death_Year);
+            let birthDecade = getDecade(record.Birth_Year);
+            record['Death_Decade'] = deathDecade
+            record['Birth_Decade'] = birthDecade
         })
 
         let resultString = JSON.stringify(results)
