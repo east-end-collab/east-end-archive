@@ -73,14 +73,14 @@ var ResultCard = function ResultCard(props) {
                 !isUnknown(Birth_Location) && React.createElement(
                     'p',
                     null,
-                    'Born in ',
+                    'Born: ',
                     Birth_Location,
                     '.'
                 ),
                 !isUnknown(Death_Location) && React.createElement(
                     'p',
                     null,
-                    'Died in ',
+                    'Died: ',
                     Death_Location,
                     '.'
                 )

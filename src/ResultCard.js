@@ -37,12 +37,12 @@ const ResultCard = (props) => {
                 <div>
                     {!isUnknown(Birth_Location) &&
                         <p>
-                            Born in {Birth_Location}.
+                            Born: {Birth_Location}.
                         </p>
                     }
                     {!isUnknown(Death_Location) &&
                         <p>
-                            Died in {Death_Location}.
+                            Died: {Death_Location}.
                         </p>
                     }
                 </div>
