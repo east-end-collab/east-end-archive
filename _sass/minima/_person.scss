@@ -87,12 +87,15 @@ img {
     width: 0;
     height: 0;
     vertical-align: middle;
-    border-bottom: 4px solid;
-    border-right: 4px solid transparent;
-    border-left: 4px solid transparent;
+    border-top: 6px solid;
+    border-right: 6px solid transparent;
+    border-left: 6px solid transparent;
     transition: transform 0.3s;
     margin: 0 10px;
   }
   .caret.rotate {
     transform: rotate(180deg);
+}
+.data{
+    display: none;
 }
