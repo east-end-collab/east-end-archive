@@ -143,11 +143,15 @@ layout: default
     {% if first == true %}
       <h3>Associated Documents</h3>
     {% endif %}
-    <h3>{{ record.Document_Type }}</h3>
-    {% if record.Media_URL != '' %}
-      <img src="{{record.Media_URL}}" alt="{{record.Document_Type}}" />
-    {% endif %}
-    {%- include document.html -%}
-    {% assign first = false %}
+    <div class="toggle-data">
+      <h3>{{ record.Document_Type }}</h3><span class="caret"></span>
+    </div>
+    <div class="data">
+      {% if record.Media_URL != '' %}
+        <img src="{{record.Media_URL}}" alt="{{record.Document_Type}}" />
+      {% endif %}
+      {%- include document.html -%}
+      {% assign first = false %}
+    </div>
   {% endif %}
 {% endfor %}
