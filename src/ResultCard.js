@@ -10,7 +10,8 @@ const ResultCard = (props) => {
     const Unknown = () => <span className="sub-text">[unknown]</span>
     const isUnknown = (field) => (field === '' || field.toLowerCase() === 'unknown')
     const protocol = window.location.protocol;
-    const host = window.location.host;
+    // CHANGE FOR GITHUB PAGES
+    var host = window.location.host;
     let firstName = isUnknown(First_Name) ? <Unknown /> : First_Name;
     let lastName = isUnknown(Last_Name) ? <Unknown /> : Last_Name;
     let birthYear = isUnknown(Birth_Year) ? <Unknown /> : Birth_Year;
@@ -36,12 +37,12 @@ const ResultCard = (props) => {
                 <div>
                     {!isUnknown(Birth_Location) &&
                         <p>
-                            Born in {Birth_Location}.
+                            Born: {Birth_Location}.
                         </p>
                     }
                     {!isUnknown(Death_Location) &&
                         <p>
-                            Died in {Death_Location}.
+                            Died: {Death_Location}.
                         </p>
                     }
                 </div>

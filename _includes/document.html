@@ -1,0 +1,167 @@
+{% if record.Birth_Date != "" or record.Birth_Location != '' or record.Death_Date != "" 
+or record.Death_Location != '' or record.Age_death != ''  %}
+  <h3>Personal Information</h3>
+  {% if record.Birth_Date != "" %}
+    <p><span class="key">Date of birth:</span> {{ record.Birth_Date }}</p>
+  {% endif %}
+
+  {% if record.Birth_Location != '' %}
+    <p><span class="key">Place of birth:</span> {{ record.Birth_Location }}</p>
+  {% endif %}
+
+  {% if record.Death_Date != "" %}
+    <p><span class="key">Date of death:</span> {{ record.Death_Date }}</p>
+  {% endif %}
+
+  {% if record.Death_Location != '' %}
+    <p><span class="key">Place of death:</span> {{ record.Death_Location }}</p>
+  {% endif %}
+
+  {% if record.Age_death != '' %}
+    <p><span class="key">Age at death:</span> {{ record.Age_death }}</p>
+  {% endif %}
+{% endif %}
+
+{% if record.Mother_Last_Name != '' or record.Father_Last_Name != '' %}
+  <h3>Relationships</h3>
+  {% if record.Mother_Last_Name != '' and record.Mother_Birthplace != ''%}
+    <p><span class="key">Mother:</span> {{ record.Mother_FirstMiddle_name }} {{ record.Mother_Last_Name }}, born in {{ record.Mother_Birthplace }}</p>
+  {% elsif record.Mother_Last_Name != ''%}
+    <p><span class="key">Mother:</span> {{ record.Mother_FirstMiddle_name }} {{ record.Mother_Last_Name }}</p>
+  {% endif %}
+
+  {% if record.Father_Last_Name != '' and record.Father_Birthplace != ''%}
+    <p><span class="key">Father:</span> {{ record.Father_FirstMiddle_Name }} {{ record.Father_Last_Name }}, born in {{ record.Father_Birthplace }}</p>
+  {% elsif record.Father_Last_Name != ''%}
+    <p><span class="key">Father:</span> {{ record.Father_FirstMiddle_Name }} {{ record.Father_Last_Name }}</p>
+  {% endif %}
+{% endif %}
+
+{% if record.Spouse_Name != '' %}
+  <p><span class="key">Spouses:</span></p>
+  <p>{{ record.Spouse_Name }}</p>
+  {% if record.Spouse_2 != '' %}
+    <p>{{ record.Spouse_2 }}</p>
+  {% endif %}
+  {% if record.Spouse_3 != '' %}
+    <p>{{ record.Spouse_3 }}</p>
+  {% endif %}
+  {% if record.Spouse_4 != '' %}
+    <p>{{ record.Spouse_4 }}</p>
+  {% endif %}
+  <p>{{ record.Marriage_date }} {{ record.Marriage_location }}</p>
+{% endif %}
+
+{% if record.Other_family_Siblings_Children_etc != '' %}
+  <p><span class="key">Other relatives:</span></p>
+  <p>{{ record.Other_family_Siblings_Children_etc }}</p>
+{% endif %}
+
+{% if record.Address != '' %}
+  <h3>Address</h3>
+  <p>{{ record.Address }}</p>
+{% endif %}
+
+{% if record.Occupation != '' %}
+  <h3>Occupation</h3>
+  <p>{{ record.Occupation }}</p>
+{% endif %}
+
+{% if record.Employer != '' %}
+  <h3>Employer</h3>
+  <p>{{ record.Employer }}</p>
+{% endif %}
+
+{% if record.Fraternal_and_Beneficial_Organizations != '' or record.Church_affiliation != '' or record.School != '' %}
+  <h3>Community Affiliations</h3>
+  {% if record.Fraternal_and_Beneficial_Organizations != '' %}
+    <p>
+      <span class="key">Fraternal and beneficial organizations:</span>
+      {{ record.Fraternal_and_Beneficial_Organizations }}
+    </p>
+  {% endif %}
+  {% if record.Church_affiliation != '' %}
+    <p><span class="key">Church affiliation:</span> {{ record.Church_affiliation }}</p>
+  {% endif %}
+  {% if record.School != '' %}
+    <p><span class="key">School:</span> {{ record.School }}</p>
+  {% endif %}
+{% endif %}
+
+{% if record.Military_Service != '' %}
+  <h3>Military Service</h3>
+  <p>{{ record.Military_Service }}</p>
+  <p>{{ record.Service_Information }}</p>
+{% endif %}
+
+{% if record.Plantation != '' %}
+  <h3>Enslavement</h3>
+  <p><span class="key">Plantation:</span> {{ record.Plantation }}</p>
+{% endif %}
+
+{% if record.Funeral_Home != '' or record.Burial_Date != '' %}
+  <h3>Burial Information</h3>
+  {% if record.Funeral_Home != '' %}
+    <p><span class="key">Funeral home:</span> {{ record.Funeral_Home }}</p>
+  {% endif %}
+  {% if record.Burial_Date != '' %}
+    <p><span class="key">Date of burial:</span> {{ record.Burial_Date }}</p>
+  {% endif %}
+{% endif %}
+
+{% if record.Title_of_NewspaperBookMagazine != '' or record.Title_of_ArticleChapterEssay != '' %}
+  <h3>Publication Title</h3>
+  {% if record.Title_of_NewspaperBookMagazine != '' %}
+    <p>{{record.Title_of_NewspaperBookMagazine}}</p>
+  {% endif %}
+  {% if record.Title_of_ArticleChapterEssay != '' %}
+    <p>{{record.Title_of_ArticleChapterEssay}}</p>
+{% endif %}
+{% endif %}
+
+{% if record.Date_of_Publication != '' %}
+<h3>Date</h3>
+<p>{{record.Date_of_Publication}}</p>
+{% endif %}
+
+{% if record.Transcription_of_Printed_Material != '' %}
+<h3>Transcription of Printed Material</h3>
+<p>{{record.Transcription_of_Printed_Material}}</p>
+{% endif %}
+
+{% if record.Type != '' %}
+<h3>Type</h3>
+<p>{{record.Type}}</p>
+{% endif %}
+
+{% if record.Other_Description != '' %}
+<h3>Other Description</h3>
+<p>{{record.Other_Description}}</p>
+{% endif %}
+
+{% if record.Materials != '' %}
+<h3>Materials</h3>
+<p>{{record.Materials}}</p>
+{% endif %}
+
+{% if record.Decoration != '' %}
+<h3>Decoration</h3>
+<p>{{record.Decoration}}</p>
+{% endif %}
+
+{% if record.Marker_Transcription != '' %}
+<h3>Marker Transcription</h3>
+<p>{{record.Marker_Transcription}}</p>
+{% endif %}
+
+
+{% if record.Notes_and_Clarifications != '' %}
+  <h3>Notes and Clarifications</h3>
+  <p>{{ record.Notes_and_Clarifications }}</p>
+{% endif %}
+
+{% if record.Other_Documents_to_Consult_for_Research != '' %}
+  <h3>Other Documents to Consult for Research:</span></h3>
+  <p>{{ record.Other_Documents_to_Consult_for_Research }}</p>
+{% endif %}
+
