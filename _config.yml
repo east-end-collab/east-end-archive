@@ -1,7 +1,7 @@
 title: East End Cemetery Collaboratory
 baseurl: ''
 # CHANGE FOR GITHUB PAGES
-url: 'https://east-end-collab.github.io/east-end-staging'
+url: ''
 
 page_gen:
   # - data: 'test_records'

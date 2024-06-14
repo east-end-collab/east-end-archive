@@ -24,7 +24,7 @@ var ResultCard = function ResultCard(props) {
     };
     var protocol = window.location.protocol;
     // CHANGE FOR GITHUB PAGES
-    var host = window.location.host + "/east-end-staging";
+    var host = window.location.host;
     var firstName = isUnknown(First_Name) ? React.createElement(Unknown, null) : First_Name;
     var lastName = isUnknown(Last_Name) ? React.createElement(Unknown, null) : Last_Name;
     var birthYear = isUnknown(Birth_Year) ? React.createElement(Unknown, null) : Birth_Year;

@@ -11,7 +11,7 @@ const ResultCard = (props) => {
     const isUnknown = (field) => (field === '' || field.toLowerCase() === 'unknown')
     const protocol = window.location.protocol;
     // CHANGE FOR GITHUB PAGES
-    var host = window.location.host + "/east-end-staging";
+    var host = window.location.host;
     let firstName = isUnknown(First_Name) ? <Unknown /> : First_Name;
     let lastName = isUnknown(Last_Name) ? <Unknown /> : Last_Name;
     let birthYear = isUnknown(Birth_Year) ? <Unknown /> : Birth_Year;
