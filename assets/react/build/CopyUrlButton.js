@@ -44,7 +44,7 @@ var CopyUrlButton = function CopyUrlButton() {
             React.createElement(
                 'span',
                 null,
-                'Share Your Search'
+                'Share Search'
             )
         )
     );

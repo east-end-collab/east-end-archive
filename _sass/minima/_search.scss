@@ -21,21 +21,12 @@
         h1{
             font-weight: bold;
         }
-        @media (min-width: $md) {
-            position: -webkit-sticky;
-            position: sticky;
-            top: 0;
-            height: 100vh;
-            overflow: scroll;
-        }
         .search-field-section{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             form{
-                width: 50%;
+                width: 100%;
             }
             .copy-url-button {
+                margin-top: 10px;
                 height: 90%;
                 font-size: .85rem;
                 &:disabled{

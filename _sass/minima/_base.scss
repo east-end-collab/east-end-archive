@@ -273,34 +273,3 @@ h3{
 .key{
   font-weight: 800;
 }
-
-.scroll-arrow-container{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Styling for the floating arrow */
-.scroll-arrow {
-  position: fixed;
-  bottom: 20px; /* Adjust position as needed */
-  padding: 10px;
-  margin: auto;
-  font-size: medium;
-  cursor: pointer;
-  display: none; /* Initially hidden */
-  z-index: 1000; /* Make sure it is on top */
-  animation: bounce 2s ease 3;
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-      transform: translateY(0%);
-  }
-  40% {
-      transform: translateY(30%);
-  }
-  60% {
-      transform: translateY(40%);
-  }
-}

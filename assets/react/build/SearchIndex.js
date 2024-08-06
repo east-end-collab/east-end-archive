@@ -326,16 +326,7 @@ var Search = function (_React$Component) {
                   })
                 )
               );
-            }),
-            React.createElement(
-              'div',
-              { className: 'scroll-arrow-container', id: 'scrollArrowContainer' },
-              React.createElement(
-                'div',
-                { className: 'scroll-arrow badge badge-secondary', id: 'scrollArrow' },
-                'Scroll for more filters ⬇'
-              )
-            )
+            })
           ),
           React.createElement(
             'div',
