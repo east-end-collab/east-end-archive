@@ -10,13 +10,17 @@ layout: default
   {{ page.Maiden_Name }} {{ page.Last_Name }} {{ page.Suffix }}
 </h1>
 
-  {% if page.FindGraveURL != '' and page.Map_URL != '' %}
-    <p><a href="{{page.FindGraveURL}}">Find a Grave</a> | <a href="{{page.Map_URL}}">Map</a></p>
-  {% elsif page.FindGraveURL != '' %}
-    <p><a href="{{page.FindGraveURL}}" target="_blank" rel="noopener noreferrer">Find a Grave</a></p>
-  {% elsif page.Map_URL != '' %}
-    <p><a href="{{page.Map_URL}}" target="_blank" rel="noopener noreferrer">Map</a></p>
+<div class="d-flex mb-3">
+  {% if page.FindGraveURL != '' %}
+    <a class="mr-2" href="{{page.FindGraveURL}}" target="_blank" rel="noopener noreferrer">Find a Grave</a>
+    {% endif %} 
+  {% if page.Map_URL != '' %}
+    <a class="mr-2" href="{{page.Map_URL}}" target="_blank" rel="noopener noreferrer">Map</a>
+    {% endif %} 
+  {% if page.EastEndCemeteryRVA_URL != '' %}
+    <a href="{{page.EastEndCemeteryRVA_URL}}" target="_blank" rel="noopener noreferrer">East End Cemetery</a>
   {% endif %}
+</div>
 
 {% if page.Birth_Date != '' %}
   <p><span class="key">Date of birth:</span> {{ page.Birth_Date }}</p>
@@ -115,13 +119,16 @@ layout: default
   <p><span class="key">Plantation:</span> {{ page.Plantation }}</p>
 {% endif %}
 
-{% if page.Funeral_Home != '' or page.Burial_Date != '' %}
+{% if page.Funeral_Home != '' or page.Burial_Date != '' or page.Cemetery_Name != '' %}
   <h3>Burial Information</h3>
   {% if page.Funeral_Home != '' %}
     <p><span class="key">Funeral home:</span> {{ page.Funeral_Home }}</p>
   {% endif %}
   {% if page.Burial_Date != '' %}
     <p><span class="key">Date of burial:</span> {{ page.Burial_Date }}</p>
+  {% endif %}
+  {% if page.Cemetery_Name != '' %}
+    <p><span class="key">Cemetery:</span> {{ page.Cemetery_Name }}</p>
   {% endif %}
 {% endif %}
 
