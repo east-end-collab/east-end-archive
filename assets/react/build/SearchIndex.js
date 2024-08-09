@@ -198,7 +198,7 @@ var Search = function (_React$Component) {
             ),
             React.createElement(
               'div',
-              { className: 'search-field-section' },
+              { className: 'search-field-section d-flex flex-wrap' },
               React.createElement(
                 'form',
                 { onSubmit: this.submitHandler, className: 'navbar-form navbar-left' },
@@ -279,8 +279,8 @@ var Search = function (_React$Component) {
             ),
             Object.entries(this.searchResult.data.aggregations).map(function (_ref) {
               var _ref2 = _slicedToArray(_ref, 2),
-                key = _ref2[0],
-                value = _ref2[1];
+                  key = _ref2[0],
+                  value = _ref2[1];
 
               return React.createElement(
                 'div',
@@ -299,8 +299,8 @@ var Search = function (_React$Component) {
                   { className: 'facet-grouping' },
                   Object.entries(value.buckets).map(function (_ref3) {
                     var _ref4 = _slicedToArray(_ref3, 2),
-                      keyB = _ref4[0],
-                      valueB = _ref4[1];
+                        keyB = _ref4[0],
+                        valueB = _ref4[1];
 
                     var isChecked = _this2.state.filters[value.name].indexOf(valueB.key) > -1 || false;
 
@@ -310,8 +310,7 @@ var Search = function (_React$Component) {
                       React.createElement('input', {
                         type: 'checkbox',
                         checked: isChecked,
-                        onChange: _this2.handleCheckbox(value.name, valueB.key)
-                      }),
+                        onChange: _this2.handleCheckbox(value.name, valueB.key) }),
                       React.createElement(
                         'span',
                         { className: 'pr-2' },
@@ -337,8 +336,8 @@ var Search = function (_React$Component) {
               null,
               Object.entries(this.searchResult.data.items).map(function (_ref5) {
                 var _ref6 = _slicedToArray(_ref5, 2),
-                  key = _ref6[0],
-                  item = _ref6[1];
+                    key = _ref6[0],
+                    item = _ref6[1];
 
                 return React.createElement(ResultCard, { result: item, key: key });
               })
